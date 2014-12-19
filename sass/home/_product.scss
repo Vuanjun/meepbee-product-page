@@ -1,0 +1,44 @@
+.product {
+  padding-top: 48px;
+}
+
+.product__carousel {
+  @include pie-clearfix;
+  position: relative;
+}
+
+.product__carousel__ {
+
+  &previousBtn, &nextBtn {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    z-index: 2;
+    background: blue;
+    bottom: 25%;
+  }
+
+  &previousBtn {
+    left: 0;
+  }
+
+  &nextBtn {
+    right: 0;
+  }
+
+  &mainPhoto {
+    margin-bottom: 20px;
+  }
+
+  &subVideo, &subPhoto {
+    display: inline-block;
+    float: left;
+    width: calc(25% - 15px);
+    margin-right: 20px; //1.25em
+  }
+
+  &subPhoto:last-child {
+    margin-right: 0;
+  }
+
+}

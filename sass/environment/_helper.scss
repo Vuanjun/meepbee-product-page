@@ -1,0 +1,35 @@
+.photoWrap {
+  position: relative;
+  padding-top: 100%;
+}
+
+.photoInner {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: block;
+}
+
+
+// .block {
+//   display: block;
+// }
+
+// .clear {
+//   clear: both;
+// }
+
+// .inlineBlock {
+//   display: inline-block;
+// }
+
+// .isBold {
+//   font-weight: bold;
+// }
+
+// .textCentered {
+//   text-align: center;
+// }
+
+// using some of the helpers meaning that you'll have to switch class with javascript
+// when you can achieve implementations with css, don't use javascript

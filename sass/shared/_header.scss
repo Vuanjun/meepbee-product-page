@@ -1,0 +1,63 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: $theme-green;
+  @include pie-clearfix;
+  z-index: 2;
+}
+
+.header__logo,
+.header__siteName {
+  float: left;
+}
+
+.header__nav {
+  float: right;
+}
+
+.header__logo,
+.header__siteName,
+.header__nav__logIn,
+.header__nav__signUp {
+  display: inline-block;
+}
+
+.header__logo {
+  width: 26px;
+  margin-top: 10px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.header__siteName {
+  @include adjust-font-size-to(20px, 2);
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.header__nav__logIn,
+.header__nav__signUp {
+  font-size: 14px;
+  line-height: 32px;
+  background: white;
+  border-radius: 2px;
+  color: $theme-green;
+  border: 1px solid white;
+  padding: 0 10px;
+  margin-top: 8px;
+  margin-right: 8px;
+}
+
+.meepbeeLabel {
+  padding-top: 48px;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: right;
+  padding-right: 8px;
+  letter-spacing: 1px;
+  color: $text-color-gray-light;
+}

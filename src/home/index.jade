@@ -1,0 +1,20 @@
+!!! 5
+html(lang='zh-TW')
+  head
+    meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title MeepBee | 用戶商品頁
+    meta(description="新時代的拍賣，最簡單的販售工具及平台，只要10秒，拍照、上架、立即銷售，不再需架站、拍賣、商店系統。並幫您發佈到各社群網站，快速銷售!")
+    meta(name="google-site-verification", content="AACjX5FFue8c4wPcawvaG-BkIX3qM_aG7CMP0dJN0mI")
+    link(rel="stylesheet", href="public/css/home/all.css")
+    link(href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", rel="stylesheet")
+    link(rel="icon", type="image/png", href="/public/img/appIcon.png")
+body
+  include ../shared/header
+  .container
+    include product
+    include comment
+    include otherProduct
+    include owner
+  include ../shared/footer
+  include script

@@ -1,0 +1,39 @@
+{
+  "name": "grunt-blog",
+  "description": "The best Grunt plugin ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ian/grunt-blog",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ian/grunt-blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ian/grunt-blog/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ian/grunt-blog/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "jade": "~0.33.0",
+    "co-exec": "^1.1.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-compass": "^1.0.1",
+    "grunt-contrib-jade": "~0.7.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-watch": "~0.4.4",
+    "koa-liveload": "0.0.2"
+  },
+  "dependencies": {
+    "co-fs": "^1.2.0",
+    "co-views": "^0.2.0",
+    "koa-mount": "^1.3.0",
+    "koa-router": "^3.4.0",
+    "koa-session": "^2.0.0",
+    "koa-static": "^1.4.6"
+  }
+}
