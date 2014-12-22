@@ -7,38 +7,55 @@
   position: relative;
 }
 
-.product__carousel__ {
+.js-subFrame {
+  display: inline-block;
+  float: left;
+  width: calc(25% - 15px);
+  margin-right: 20px; //1.25em
+  padding-top: calc(25% - 15px);
+}
 
-  &previousBtn, &nextBtn {
+.js-subFrame:last-child {
+  margin-right: 0;
+}
+
+.js-activeFrame {
+  margin-bottom: 20px;
+}
+
+.product__carousel__displayBox {
+
+  position: relative;
+
+  &__previousBtn, &__nextBtn {
+
     position: absolute;
     width: 42px;
     height: 42px;
     z-index: 2;
     background: blue;
-    bottom: 25%;
+    bottom: 0;
+    color: #eee;
+    background: #777;
+    text-align: center;
+    font-weight: bold;
+    line-height: 42px;
+    font-size: 18px;
+    transition: 1s all;
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+      background: #111;
+    }
+
   }
 
-  &previousBtn {
+  &__previousBtn {
     left: 0;
   }
 
-  &nextBtn {
+  &__nextBtn {
     right: 0;
-  }
-
-  &mainPhoto {
-    margin-bottom: 20px;
-  }
-
-  &subVideo, &subPhoto {
-    display: inline-block;
-    float: left;
-    width: calc(25% - 15px);
-    margin-right: 20px; //1.25em
-  }
-
-  &subPhoto:last-child {
-    margin-right: 0;
   }
 
 }
