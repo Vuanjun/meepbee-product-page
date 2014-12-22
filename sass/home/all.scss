@@ -1,7 +1,12 @@
 @import 'environment/all';
 @import 'shared/all';
+
 @import 'index';
+
 @import 'product';
+@import 'product__carousel';
+@import 'product__info';
+
 @import 'comment';
 @import 'otherProduct';
 @import 'owner';

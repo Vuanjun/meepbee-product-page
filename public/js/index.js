@@ -24,7 +24,6 @@ previousBtn.onclick = function () {
 
   var aboutToFadeInItem;
   var aboutToFadeOutItem;
-  console.log(activeFrameIndex);
 
   // activeFrameIndex = [0, 4, 3, 2, 1];
 
@@ -32,7 +31,6 @@ previousBtn.onclick = function () {
   aboutToFadeOutItem = photoItemArray[ activeFrameIndex ];
 
   if(activeFrameIndex==0) {
-    console.log('test')
     aboutToFadeInItem = photoItemArray[ 4 - activeFrameIndex ];
     aboutToFadeOutItem = photoItemArray[ activeFrameIndex ];
   }
