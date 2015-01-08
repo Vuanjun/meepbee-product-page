@@ -1,0 +1,47 @@
+.otherProduct {
+  @include pie-clearfix;
+  width: 100%;
+}
+
+.otherProduct__label {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+  border-bottom: 1px solid $border-color-gray;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  width: 96%;
+  text-align: center;
+}
+
+.otherProduct__item {
+  display: inline-block;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
+.big {
+  width: 64%;
+  padding-top: 64%;
+}
+
+.marginLeft {
+  margin-left: 2%;
+}
+
+.marginRight {
+  margin-right: 2%;
+}
+
+.small {
+  width: 32%;
+  padding-top: 32%;
+}

@@ -1,0 +1,30 @@
+.product__socialMedia {
+
+  text-align: left;
+
+  &__fb, &__google, &__instagram {
+    display: inline-block;
+    color: white;
+    width: 32px;
+    font-size: 18px;
+    height: 32px;
+    line-height: 32px;
+    font-weight: bold;
+    margin-right: 10px;
+    text-align: center;
+  }
+
+  &__fb {
+    background: $btn-color-fb;
+  }
+
+  &__google {
+    background: $btn-color-google;
+  }
+
+  &__instagram {
+    background: $btn-color-instagram;
+    margin-right: 0;
+  }
+
+}

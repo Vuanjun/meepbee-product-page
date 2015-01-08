@@ -1,12 +1,9 @@
-.product__info {
-  @include pie-clearfix;
-}
-
 .product__info__title {
-  font-size: 28px;
-  line-height: 42px;
+  font-size: 24px;
+  line-height: 36px;
   letter-spacing: 1px;
   color: $text-color-black-dark;
+  font-weight: 200;
 }
 
 .product__info__price {
@@ -14,50 +11,23 @@
   margin-bottom: 6px;
 }
 
-.product__info__price__currency, .product__info__price__figure {
+.product__info__price__currency,
+.product__info__price__figure {
   font-size: 16px;
-  line-height: 28px;
+  line-height: 24px;
   display: inline-block;
+  font-weight: bold;
+  color: $text-color-black-dark;
 }
 
 .product__info__price__currency {
   margin-right: 6px;
-  font-weight: bold;
 }
 
 .product__info__description {
   color: $text-color-black-medium;
   font-size: 14px;
   line-height: 24px;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.product__info__actionSet {
-  text-align: right;
-  width: 100%;
-}
-
-.product__info__quantityBox, .product__info__buyBtn {
-  display: inline-block;
-  font-size: 16px;
-  width: calc(25% - 17px);
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-}
-
-.product__info__quantityBox {
-  border: 2px solid $text-color-black-light;
-  color: $text-color-black-medium;
-  font-weight: bold;
-  margin-right: 20px;
-}
-
-.product__info__buyBtn {
-  border: 2px solid $theme-green;
-  color: white;
-  background: $theme-green;
   font-weight: bold;
 }
 

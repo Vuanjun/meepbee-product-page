@@ -1,0 +1,62 @@
+.comment__label {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+  border-bottom: 1px solid $border-color-gray;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  text-align: center;
+}
+
+.comment__person {
+
+  @include pie-clearfix;
+
+  margin-bottom: 10px;
+
+  &__avatar {
+    float: left;
+    width: calc(20% - 12px);
+    margin-right: 12px;
+    position: relative;
+    padding-bottom: calc(20% - 12px);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  &__avatar__image {
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__nameAndMessage {
+    float: right;
+    width: 80%;
+    display: inline-block;
+  }
+
+  &__nameAndMessage__name {
+    width: 100%;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  &__nameAndMessage__message,
+  &__nameAndMessage__message--field {
+    width: 100%;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  &__nameAndMessage__message--field {
+    border: 1px solid $border-color-gray;
+  }
+
+}
+

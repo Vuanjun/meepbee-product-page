@@ -9,13 +9,13 @@ $susy: (
   gutters: .10,
   column-width: false,
   global-box-sizing: border-box,
-  last-flow: to,
-  debug: (
-  image: show,
-  output: overlay,
-  toggle: bottom left,
-  color: rgba(gray, .5),
-  )
+  last-flow: to
+  // debug: (
+  // image: show,
+  // output: overlay,
+  // toggle: bottom left,
+  // color: rgba(gray, .5),
+  // )
 );
 
 html, body {
@@ -32,7 +32,7 @@ $desktop        : 1024px;
 
 .container {
   @include container(4);
-  padding: 1.25em;
+  padding: 0.75em;
   @include breakpoint($pad) { @include show-grid(8); max-width: container(8); }
   @include breakpoint($desktop) { @include show-grid(12); max-width: container(12); }
 }

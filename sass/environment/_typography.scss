@@ -1,7 +1,29 @@
+// @font-face {
+//   font-family: 'Noto Sans Bold';
+//   src: url('../../font/NotoSansCJKTC-hinted/NotoSansCJKtc-Bold.otf');
+// }
+
+// @font-face {
+//   font-family: 'Noto Sans Medium';
+//   src: url('../../font/NotoSansCJKTC-hinted/NotoSansCJKtc-Medium.otf'),
+// }
+
+// @font-face {
+//   font-family: 'Noto Sans Regular';
+//   src: url('../../font/NotoSansCJKTC-hinted/NotoSansCJKtc-Regular.otf'),
+// }
+
+// @font-face {
+//   font-family: 'Noto Sans Thin';
+//   src: url('../../font/NotoSansCJKTC-hinted/NotoSansCJKtc-Thin.otf'),
+// }
+
 body {
   // for debugging
   // @include baseline-grid-background;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-family: "helvetica", "Hiragino Sans GB", "Microsoft YaHei", "STHeiti", "Helvetica Neue", Arial, "Microsoft JhengHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  color: $text-color-black-medium;
 }
+

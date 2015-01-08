@@ -1,0 +1,103 @@
+.owner {
+  @include pie-clearfix;
+  padding: 24px 0;
+}
+
+
+.owner__avatar {
+  margin: 0 auto;
+  width: 40%;
+  border-radius: 50%;
+  padding-top: 40%;
+}
+
+.owner__avatar__image {
+  border-radius: 50%;
+}
+
+.owner__name {
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 18px;
+  line-height: 36px;
+  text-align: center;
+}
+
+.owner__email,
+.owner__phone {
+  @include pie-clearfix;
+  width: 100%;
+  text-align: center;
+
+}
+
+.owner__email {
+  margin-bottom: 6px;
+}
+
+.owner__phone {
+  margin-bottom: 12px;
+}
+
+.owner__email__label,
+.owner__phone__label,
+.owner__email__content,
+.owner__phone__content {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.owner__email__label,
+.owner__phone__label {
+  font-weight: bold;
+}
+
+.owner__email__content,
+.owner__phone__content {
+  color: $text-color-black-dark;
+}
+
+.owner__email__content {
+  -webkit-appearance: none;
+}
+
+.owner__socialMedia {
+  @include pie-clearfix;
+  margin-bottom: 2px;
+}
+
+.owner__socialMedia {
+
+  text-align: center;
+
+  &__fb, &__google, &__instagram {
+    display: inline-block;
+    width: 36px;
+    font-size: 14px;
+    height: 36px;
+    line-height: 32px;
+    font-weight: bold;
+    margin-right: 12px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
+  }
+
+  &__fb {
+    color: $btn-color-fb;
+    border-color: $btn-color-fb;
+  }
+
+  &__google {
+    color: $btn-color-google;
+    border-color: $btn-color-google;
+  }
+
+  &__instagram {
+    color: $btn-color-instagram;
+    border-color: $btn-color-instagram;
+    margin-right: 0;
+  }
+
+}

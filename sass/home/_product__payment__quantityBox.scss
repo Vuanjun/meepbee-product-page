@@ -1,0 +1,60 @@
+.product__payment__quantityBox {
+  text-align: center;
+}
+.product__payment__quantityBox__label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: $text-color-black-dark;
+  text-align: center;
+}
+
+.product__payment__quantityBox__actionSet {
+  @include pie-clearfix;
+  position: relative;
+  display: inline-block;
+  padding: 14px;
+  width: 96px;
+  border: 2px solid $text-color-black-light;
+  border-radius: 2px;
+  margin-bottom: 8px;
+}
+
+.product__payment__quantityBox__actionSet {
+  &__figure, &__btn--minus, &__btn--plus {
+    display: inline-block;
+    font-family: arial;
+    position: absolute;
+    top: 0;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+  }
+  &__figure {
+    font-size: 16px;
+    line-height: 28px;
+    width: 34%;
+    left: 33%;
+    background: white;
+    border-top: 2px solid $text-color-black-light;
+    border-bottom: 2px solid $text-color-black-light;
+    border-right: 0;
+    border-left: 0;
+    outline: 0;
+  }
+  &__btn--minus {
+    width: 33%;
+    left: 0;
+    background: $text-color-black-light;
+    color: white;
+    font-size: 24px;
+    border-right: 1px solid $text-color-black-light;
+  }
+  &__btn--plus {
+    width: 33%;
+    right: 0;
+    background: $text-color-black-light;
+    color: white;
+    font-size: 24px;
+    border-left: 1px solid $text-color-black-light;
+  }
+}

@@ -1,0 +1,10 @@
+.comment
+  .comment__label 留言板
+  each item in [0,1,2]
+    include comment__person
+  .comment__person
+    .comment__person__avatar
+      img.comment__person__avatar__image(src="http://placehold.it/200x200/ccc")
+    .comment__person__nameAndMessage
+      .comment__person__nameAndMessage__name Some Guests
+      input.comment__person__nameAndMessage__message--field(placeholder="Hi there...")

@@ -6,7 +6,7 @@
   height: 48px;
   background: $theme-green;
   @include pie-clearfix;
-  z-index: 2;
+  z-index: 4;
 }
 
 .header__logo,
@@ -27,6 +27,8 @@
 
 .header__logo {
   width: 26px;
+  position: relative;
+  padding-top: 38px;
   margin-top: 10px;
   margin-left: 12px;
   margin-right: 12px;
