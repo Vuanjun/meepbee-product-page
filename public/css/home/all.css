@@ -1327,9 +1327,29 @@ html {
   padding-top: 32%;
 }
 
+@media (min-width: 1024px) {
+  .otherProduct {
+    display: inline-block;
+    width: 35%;
+    float: right;
+  }
+
+  .otherProduct__label {
+    width: 100%;
+    margin-bottom: 1.5em;
+    font-size: 30px;
+    line-height: 54px;
+    text-align: left;
+    margin-top: 12px;
+    text-align: center;
+  }
+}
 .owner {
   *zoom: 1;
   padding: 24px 0;
+  max-width: 480px;
+  margin: 0 auto;
+  clear: both;
 }
 .owner:after {
   content: "";
@@ -1442,4 +1462,21 @@ html {
 .isChosen {
   background: #424242;
   color: white;
+}
+
+.ownerOnLeft {
+  width: calc(65% - 1.5em);
+  display: inline-block;
+  max-width: none;
+  width: 65%;
+  padding: 24px 0 48px 0;
+}
+
+.avatarSmall {
+  width: 20%;
+  padding-top: 20%;
+}
+
+.recipientInfoPush {
+  margin-bottom: 26px;
 }

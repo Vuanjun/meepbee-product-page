@@ -1,6 +1,9 @@
 .owner {
   @include pie-clearfix;
   padding: 24px 0;
+  max-width: 480px;
+  margin: 0 auto;
+  clear: both;
 }
 
 
@@ -100,4 +103,8 @@
     margin-right: 0;
   }
 
+}
+
+
+@include susy-breakpoint($desktop, 12) {
 }

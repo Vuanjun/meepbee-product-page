@@ -2,3 +2,20 @@
   background: $bg-color-gray-dark;
   color: white;
 }
+
+.ownerOnLeft {
+  width: calc(65% - #{$paddingDesktop});
+  display: inline-block;
+  max-width: none;
+  width: 65%;
+  padding: 24px 0 48px 0;
+}
+
+.avatarSmall {
+  width: 20%;
+  padding-top: 20%;
+}
+
+.recipientInfoPush {
+  margin-bottom: 26px;
+}
