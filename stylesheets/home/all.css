@@ -1022,44 +1022,44 @@ html {
   font-weight: bold;
 }
 
-/* line 1, ../../sass/home/_product__recipientInfo.scss */
-.product__recipientInfo {
+/* line 1, ../../sass/home/_recipientInfo.scss */
+.recipientInfo {
   *zoom: 1;
   background: #f3f3f3;
   padding: 12px;
 }
 /* line 38, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/general/_clearfix.scss */
-.product__recipientInfo:after {
+.recipientInfo:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 7, ../../sass/home/_product__recipientInfo.scss */
-.product__recipientInfo__name,
-.product__recipientInfo__phone,
-.product__recipientInfo__address,
-.product__recipientInfo__memo {
+/* line 7, ../../sass/home/_recipientInfo.scss */
+.recipientInfo__name,
+.recipientInfo__phone,
+.recipientInfo__address,
+.recipientInfo__memo {
   width: 100%;
   margin-bottom: 10px;
 }
-/* line 13, ../../sass/home/_product__recipientInfo.scss */
-.product__recipientInfo__name__label, .product__recipientInfo__name__field,
-.product__recipientInfo__phone__label,
-.product__recipientInfo__phone__field,
-.product__recipientInfo__address__label,
-.product__recipientInfo__address__field,
-.product__recipientInfo__memo__label,
-.product__recipientInfo__memo__field {
+/* line 13, ../../sass/home/_recipientInfo.scss */
+.recipientInfo__name__label, .recipientInfo__name__field,
+.recipientInfo__phone__label,
+.recipientInfo__phone__field,
+.recipientInfo__address__label,
+.recipientInfo__address__field,
+.recipientInfo__memo__label,
+.recipientInfo__memo__field {
   width: 100%;
   display: block;
   font-size: 14px;
 }
-/* line 18, ../../sass/home/_product__recipientInfo.scss */
-.product__recipientInfo__name__field,
-.product__recipientInfo__phone__field,
-.product__recipientInfo__address__field,
-.product__recipientInfo__memo__field {
+/* line 18, ../../sass/home/_recipientInfo.scss */
+.recipientInfo__name__field,
+.recipientInfo__phone__field,
+.recipientInfo__address__field,
+.recipientInfo__memo__field {
   border-radius: 0;
   border: none;
   border-bottom: 1px solid #acacac;
@@ -1067,8 +1067,8 @@ html {
   padding-left: 0;
 }
 
-/* line 27, ../../sass/home/_product__recipientInfo.scss */
-.product__recipientInfo__label {
+/* line 27, ../../sass/home/_recipientInfo.scss */
+.recipientInfo__label {
   font-weight: bold;
   margin-bottom: 6px;
 }

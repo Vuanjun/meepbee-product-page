@@ -35,6 +35,9 @@
 .product__payment__cashFlow__actionSet__payInPersonBtn,
 .prodcut__payment__logistics__actionSet__deliverToHomeBtn,
 .product__payment__logistics__actionSet__deliverInPersonBtn {
+  &:hover {
+    cursor: pointer;
+  }
   display: inline-block;
   background: $bg-color-gray-medium;
   color: $text-color-black-medium;
@@ -44,6 +47,7 @@
   width: calc(25% - 3px);
   line-height: 54px;
   height: 54px;
+  transition: 0.3s all;
 }
 
 .product__payment__cashFlow__actionSet__payInPersonBtn,
@@ -59,7 +63,10 @@
 
 .product__payment__summary {
   border-top: 1px solid $text-color-gray-light;
-  padding-top: 12px;
+  border-bottom: 1px solid $text-color-gray-light;
+  padding: 18px ;
+  transition: 0.3s all;
+  display: none;
 }
 
 .product__payment__summary__cashFlowAndLogistics {
@@ -92,14 +99,48 @@
 }
 
 .product__payment__summary__confirmBtn {
-  float: right;
-  display: inline-block;
-  width: calc(50% - 3px);
-  height: 54px;
-  line-height: 54px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  width: calc(35% - 3px);
+  max-width: 200px;
+  height: 42px;
+  line-height: 42px;
   text-align: center;
-  border: 1px solid $theme-green;
   color: white;
-  background: $theme-green;
+  background: #616161;
   font-weight: bold;
+  margin: 0 auto;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+@include susy-breakpoint($desktop, 12) {
+
+  .product__payment {
+    width: 35%;
+    float: right;
+    display: inline-block;
+    background: $bg-color-gray-light;
+    padding: $paddingDesktop;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .product__payment__quantityBox__label,
+  .product__payment__cashFlow__label,
+  .product__payment__logistics__label,
+  .product__payment__cashFlow,
+  .product__payment__cashFlow__actionSet,
+  .product__payment__logistics,
+  .product__payment__logistics__actionSet {
+    text-align: left;
+  }
+
+  .product__payment__summary__confirmBtn {
+    width: 100%;
+    max-width: none;
+  }
+
 }

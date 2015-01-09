@@ -10,10 +10,11 @@
 @import 'product__socialMedia';
 @import 'product__payment';
 @import 'product__payment__quantityBox';
-@import 'product__recipientInfo';
-@import 'product__confirm';
 
+@import 'recipientInfo';
 
 @import 'comment';
 @import 'otherProduct';
 @import 'owner';
+
+@import 'forJS/all';

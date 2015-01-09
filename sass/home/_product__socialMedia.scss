@@ -28,3 +28,13 @@
   }
 
 }
+
+@include susy-breakpoint($desktop, 12) {
+  .product__socialMedia {
+    text-align: center;
+    margin-bottom: 24px;
+    display: inline-block;
+    width: 35%;
+    float: right;
+  }
+}

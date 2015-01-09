@@ -31,3 +31,14 @@
   font-weight: bold;
 }
 
+@include susy-breakpoint($desktop, 12) {
+
+  .product__info {
+    width: 35%;
+    float: right;
+    display: inline-block;
+    background: $bg-color-gray-light;
+    padding: 20px;
+    margin-bottom: $paddingDesktop;
+  }
+}

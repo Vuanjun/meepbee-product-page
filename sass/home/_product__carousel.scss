@@ -134,8 +134,20 @@
 }
 
 
-@include susy-breakpoint($pad, 8) {
+@include susy-breakpoint($desktop, 12) {
+  .product__carousel {
+    width: calc(65% - #{$paddingDesktop});
+    margin-right: $paddingDesktop;
+    display: inline-block;
+    float: left;
+    margin-bottom: 0;
+  }
+  .product__carousel__displayBox {
 
-
-
+  }
+  .js-subFrame {
+    width: calc(20% - #{$paddingDesktop});
+    padding-top: calc(20% - #{$paddingDesktop});
+    margin-bottom: $paddingDesktop;
+  }
 }

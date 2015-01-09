@@ -1,15 +1,19 @@
 .product {
   padding-top: 48px;
+  @include pie-clearfix;
+}
+
+.product__wrap--upperGroup {
+  @include pie-clearfix;
 }
 
 .product__carousel,
 .product__info,
-.product__payment,
-.product__recipientInfo {
-  margin-bottom: 10px;
+.product__socialMedia, {
   @include pie-clearfix;
+  margin-bottom: 14px;
 }
 
-.product__socialMedia, {
-  margin-bottom: 14px;
+@include susy-breakpoint($desktop, 12) {
+
 }

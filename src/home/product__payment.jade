@@ -2,16 +2,17 @@
   include product__payment__quantityBox
   .product__payment__cashFlow
     .product__payment__cashFlow__label 付款方式
-    .product__payment__cashFlow__actionSet
-      a.prodcut__payment__cashFlow__actionSet__atmBtn ATM轉賬
-      a.product__payment__cashFlow__actionSet__payOnArrivalBtn 貨到付款
-      a.product__payment__cashFlow__actionSet__payInPersonBtn 面交
+    .product__payment__cashFlow__actionSet.js-cashFlow-action
+      .prodcut__payment__cashFlow__actionSet__atmBtn.js-atmBtn ATM轉賬
+      .product__payment__cashFlow__actionSet__payOnArrivalBtn.js-payOnArrivalBtn 貨到付款
+      .product__payment__cashFlow__actionSet__payInPersonBtn.js-payInPersonBtn 面交
   .product__payment__logistics
     .product__payment__logistics__label 收件方式
-    .product__payment__logistics__actionSet
-      a.prodcut__payment__logistics__actionSet__deliverToHomeBtn 宅配
-      a.product__payment__logistics__actionSet__deliverInPersonBtn 面交
-  .product__payment__summary
+    .product__payment__logistics__actionSet.js-logistics-action
+      .prodcut__payment__logistics__actionSet__deliverToHomeBtn.js-deliverToHomeBtn 宅配
+      .product__payment__logistics__actionSet__deliverInPersonBtn.js-deliverInPersonBtn 面交
+  .product__payment__summary__confirmBtn.js-payment-confirmBtn 計算價錢
+  .product__payment__summary.js-payment-summary
     .product__payment__summary__cashFlowAndLogistics
       .product__payment__summary__cashFlowAndLogistics__cashFlow
         .product__payment__summary__cashFlowAndLogistics__cashFlow__label 運費：
@@ -19,6 +20,7 @@
       .product__payment__summary__cashFlowAndLogistics__logistics
         .product__payment__summary__cashFlowAndLogistics__logistics__label 總計：
         .product__payment__summary__cashFlowAndLogistics__logistics__price NT$2,730
+
 
 
 

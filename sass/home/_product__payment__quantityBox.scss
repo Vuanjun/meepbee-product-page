@@ -58,3 +58,14 @@
     border-left: 1px solid $text-color-black-light;
   }
 }
+
+@include susy-breakpoint($desktop, 12) {
+
+  .product__payment__quantityBox,
+  .product__payment__quantityBox__label,
+  .product__payment__cashFlow__label,
+  .product__payment__logistics__label {
+    text-align: left;
+  }
+
+}
