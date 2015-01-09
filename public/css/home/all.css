@@ -456,7 +456,7 @@ html, body {
 
 @media (min-width: 1024px) {
   .container {
-    padding: 1.5em;
+    padding: 2.5em;
   }
 }
 @media (min-width: 1440px) {
@@ -761,17 +761,17 @@ html {
 
 @media (min-width: 1024px) {
   .product__carousel {
-    width: calc(65% - 1.5em);
-    margin-right: 1.5em;
+    width: calc(65% - 2.5em);
+    margin-right: 2.5em;
     display: inline-block;
     float: left;
     margin-bottom: 0;
   }
 
   .js-subFrame {
-    width: calc(20% - 1.5em);
-    padding-top: calc(20% - 1.5em);
-    margin-bottom: 1.5em;
+    width: calc(20% - 2.5em);
+    padding-top: calc(20% - 2.5em);
+    margin-bottom: 2.5em;
   }
 }
 .product__carousel__item--video {
@@ -824,7 +824,7 @@ html {
     display: inline-block;
     background: #f3f3f3;
     padding: 20px;
-    margin-bottom: 1.5em;
+    margin-bottom: 2.5em;
   }
 }
 .product__socialMedia {
@@ -994,7 +994,7 @@ html {
   font-weight: bold;
   margin: 0 auto;
   border-radius: 2px;
-  margin-bottom: 14px;
+  margin-bottom: 2.5em;
 }
 .product__payment__summary__confirmBtn:hover {
   cursor: pointer;
@@ -1006,7 +1006,7 @@ html {
     float: right;
     display: inline-block;
     background: #f3f3f3;
-    padding: 1.5em;
+    padding: 2.5em;
     padding-bottom: 0;
     margin-bottom: 0;
   }
@@ -1168,7 +1168,7 @@ html {
   .recipientInfo {
     width: 35%;
     float: right;
-    padding: 1.5em;
+    padding: 2.5em;
   }
 
   .confirmBtn {
@@ -1234,14 +1234,14 @@ html {
 
 @media (min-width: 1024px) {
   .comment {
-    width: calc(65% - 1.5em);
+    width: calc(65% - 2.5em);
     margin-top: 12px;
     display: inline-block;
     float: left;
   }
 
   .comment__label {
-    margin-bottom: 1.5em;
+    margin-bottom: 2.5em;
     font-size: 30px;
     line-height: 54px;
     text-align: left;
@@ -1465,7 +1465,7 @@ html {
 }
 
 .ownerOnLeft {
-  width: calc(65% - 1.5em);
+  width: calc(65% - 2.5em);
   display: inline-block;
   max-width: none;
   width: 65%;
