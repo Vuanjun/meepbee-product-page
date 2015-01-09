@@ -1,6 +1,7 @@
 .product {
   padding-top: 48px;
   @include pie-clearfix;
+  position: relative;
 }
 
 .product__wrap--upperGroup {

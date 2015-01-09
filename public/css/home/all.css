@@ -602,6 +602,7 @@ html {
 .product {
   padding-top: 48px;
   *zoom: 1;
+  position: relative;
 }
 .product:after {
   content: "";
@@ -1234,7 +1235,7 @@ html {
 @media (min-width: 1024px) {
   .comment {
     width: calc(65% - 1.5em);
-    margin-top: 24px;
+    margin-top: 12px;
     display: inline-block;
     float: left;
   }
