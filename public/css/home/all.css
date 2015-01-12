@@ -1203,10 +1203,10 @@ html {
 
 @media (min-width: 1024px) {
   .recipientInfo {
-    width: 35%;
+    width: 100%;
     position: absolute;
     bottom: -475px;
-    right: 0;
+    left: 0;
     padding: 91px 2.5em 2.5em 2.5em;
   }
 
@@ -1214,6 +1214,10 @@ html {
     margin-top: 18px;
   }
 }
+.comment {
+  border-bottom: 1px solid #d9d9d9;
+}
+
 .comment__label {
   font-weight: bold;
   font-size: 18px;
@@ -1272,10 +1276,6 @@ html {
 }
 
 @media (min-width: 1024px) {
-  .comment {
-    border-bottom: 1px solid #d9d9d9;
-  }
-
   .comment__label {
     margin-bottom: 1em;
     font-size: 30px;
@@ -1518,12 +1518,4 @@ html {
 
 .recipientInfoPush {
   margin-bottom: 26px;
-}
-
-.SummaryShort {
-  bottom: -73px;
-}
-
-.recipientInfoShort {
-  bottom: -407px;
 }

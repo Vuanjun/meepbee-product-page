@@ -1,3 +1,6 @@
+.comment {
+  border-bottom: 1px solid $border-color-gray;
+}
 .comment__label {
   font-weight: bold;
   font-size: 18px;
@@ -66,7 +69,6 @@
     // margin-top: 12px;
     // display: inline-block;
     // float: left;
-    border-bottom: 1px solid $border-color-gray;
   }
   .comment__label {
     margin-bottom: 1em;
