@@ -52,16 +52,16 @@ paymentSummaryCofrimBtn.onclick = function() {
     paymentSummaryCofrimBtn.innerHTML = "關閉資訊";
     owner.classList.add('ownerOnLeft');
     ownerAvatar.classList.add('avatarSmall');
-    recipientInfo.classList.add('recipientInfoPush');
+    // recipientInfo.classList.add('recipientInfoPush');
     // if(window.innerWidth>=1024 && window.innerWidth<=1300) comment.style.marginTop="-62px";
     paymentSummary.style.display="block";
-    recipientInfo.style.display="block";
+    recipientInfo.style.display="initial";
   } else {
     paymentDetailIsOpen = false;
     paymentSummaryCofrimBtn.innerHTML = "計算價錢";
     owner.classList.remove('ownerOnLeft');
     ownerAvatar.classList.remove('avatarSmall');
-    recipientInfo.classList.add('recipientInfoPush');
+    // recipientInfo.classList.add('recipientInfoPush');
     // if(window.innerWidth>=1024 && window.innerWidth<=1300) comment.style.marginTop="12px";
     paymentSummary.style.display="none";
     recipientInfo.style.display="none";

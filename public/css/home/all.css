@@ -864,6 +864,7 @@ html {
 .product__payment {
   padding: 12px;
   background: #f3f3f3;
+  position: relative;
 }
 
 .product__payment__cashFlow,
@@ -1021,6 +1022,14 @@ html {
     text-align: left;
   }
 
+  .product__payment__summary {
+    position: absolute;
+    bottom: -59px;
+    right: 0;
+    left: 0;
+    z-index: 2;
+  }
+
   .product__payment__summary__confirmBtn {
     width: 100%;
     max-width: none;
@@ -1167,8 +1176,10 @@ html {
 @media (min-width: 1024px) {
   .recipientInfo {
     width: 35%;
-    float: right;
-    padding: 2.5em;
+    position: absolute;
+    bottom: -475px;
+    right: 0;
+    padding: 91px 2.5em 2.5em 2.5em;
   }
 
   .confirmBtn {
@@ -1298,29 +1309,22 @@ html {
   float: left;
 }
 
-.floatRight {
-  float: right;
-}
-
 .big {
-  width: 64%;
-  padding-top: 64%;
-}
-
-.marginLeft {
-  margin-left: 2%;
-}
-
-.marginRight {
-  margin-right: 2%;
+  width: 40%;
+  padding-top: 40%;
 }
 
 .small {
-  width: 32%;
-  padding-top: 32%;
+  width: 20%;
+  padding-top: 20%;
 }
 
 @media (min-width: 1024px) {
+  .otherProduct {
+    width: 100%;
+    margin-bottom: 2.5em;
+  }
+
   .otherProduct__label {
     width: 100%;
     margin-bottom: 1em;
@@ -1446,6 +1450,12 @@ html {
   margin-right: 0;
 }
 
+@media (min-width: 1024px) {
+  .owner {
+    padding: 3em 0;
+    margin-bottom: 0;
+  }
+}
 .isChosen {
   background: #424242;
   color: white;

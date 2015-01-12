@@ -24,26 +24,26 @@
   float: left;
 }
 
-.floatRight {
-  float: right;
-}
+// .floatRight {
+//   float: right;
+// }
 
 .big {
-  width: 64%;
-  padding-top: 64%;
+  width: 40%;
+  padding-top: 40%;
 }
 
-.marginLeft {
-  margin-left: 2%;
-}
+// .marginLeft {
+//   margin-left: 2%;
+// }
 
-.marginRight {
-  margin-right: 2%;
-}
+// .marginRight {
+//   margin-right: 2%;
+// }
 
 .small {
-  width: 32%;
-  padding-top: 32%;
+  width: 20%;
+  padding-top: 20%;
 }
 
 
@@ -53,6 +53,8 @@
     // display: inline-block;
     // width: 35%;
     // float: right;
+    width: 100%;
+    margin-bottom: 2.5em;
   }
   .otherProduct__label {
     width: 100%;
