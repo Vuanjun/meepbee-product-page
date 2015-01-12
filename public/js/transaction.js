@@ -86,17 +86,23 @@ paymentSummaryCofrimBtn.onclick = function() {
 var plusBtn = document.getElementsByClassName('js-plus-btn')[0];
 var minusBtn = document.getElementsByClassName('js-minus-btn')[0];
 
-plusBtn.addEventListener('click', increaseNo);
 // plusBtn.addEventListener('touchstart', increaseNo);
 // plusBtn.on('tap', increaseNo);
+plusBtn.addEventListener('click', increaseNo);
 minusBtn.addEventListener('click', decreaseNo);
 
+
 function increaseNo(e) {
-  e.path[1].firstChild.innerHTML = Number(e.path[1].firstChild.innerHTML) + 1;
+  var quantity = document.getElementsByClassName('product__payment__quantityBox__actionSet__figure')[0];
+  quantity.innerHTML = ~~quantity.innerHTML + 1;
 }
 
 function decreaseNo(e) {
-  if(Number(e.path[1].firstChild.innerHTML)>1){
-    e.path[1].firstChild.innerHTML = Number(e.path[1].firstChild.innerHTML) - 1;
+  var qtyDOM = document.getElementsByClassName('product__payment__quantityBox__actionSet__figure')[0];
+  var qty = ~~qtyDOM.innerHTML
+  if (qty <= 1) {
+    return false;
+  } else {
+    qtyDOM.innerHTML = qty - 1;
   }
 }
