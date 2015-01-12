@@ -995,7 +995,7 @@ html {
   font-weight: bold;
   margin: 0 auto;
   border-radius: 2px;
-  margin-bottom: 2.5em;
+  margin-bottom: 14px;
 }
 .product__payment__summary__confirmBtn:hover {
   cursor: pointer;
@@ -1033,6 +1033,7 @@ html {
   .product__payment__summary__confirmBtn {
     width: 100%;
     max-width: none;
+    margin-bottom: 2.5em;
   }
 }
 .product__payment__quantityBox {
@@ -1091,6 +1092,9 @@ html {
   font-size: 24px;
   border-right: 1px solid #616161;
 }
+.product__payment__quantityBox__actionSet__btn--minus:hover {
+  cursor: pointer;
+}
 .product__payment__quantityBox__actionSet__btn--plus {
   width: 33%;
   right: 0;
@@ -1098,6 +1102,9 @@ html {
   color: white;
   font-size: 24px;
   border-left: 1px solid #616161;
+}
+.product__payment__quantityBox__actionSet__btn--plus:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 1024px) {
@@ -1310,16 +1317,26 @@ html {
 }
 
 .big {
-  width: 40%;
-  padding-top: 40%;
+  width: 50%;
+  padding-top: 50%;
 }
 
 .small {
-  width: 20%;
-  padding-top: 20%;
+  width: 25%;
+  padding-top: 25%;
 }
 
 @media (min-width: 1024px) {
+  .big {
+    width: 40%;
+    padding-top: 40%;
+  }
+
+  .small {
+    width: 20%;
+    padding-top: 20%;
+  }
+
   .otherProduct {
     width: 100%;
     margin-bottom: 2.5em;

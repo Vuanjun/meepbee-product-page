@@ -115,7 +115,7 @@
   font-weight: bold;
   margin: 0 auto;
   border-radius: 2px;
-  margin-bottom: $paddingDesktop;
+  margin-bottom: 14px;
 }
 
 @include susy-breakpoint($desktop, 12) {
@@ -150,6 +150,7 @@
   .product__payment__summary__confirmBtn {
     width: 100%;
     max-width: none;
+    margin-bottom: $paddingDesktop;
   }
 
 }
