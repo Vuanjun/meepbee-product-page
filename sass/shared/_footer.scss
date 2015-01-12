@@ -38,4 +38,24 @@
   }
 }
 
+@include susy-breakpoint($desktop, 12) {
+  .footer {
+    padding: 2.5em 0 3em 0;
+    &__logoWord {
+      font-size: 24px;
+      line-height: 48px;
+    }
+  }
+  .footer__menu__item {
+    float: none;
+    width: auto;
+    &__link {
+      font-size: 12px;
+      padding: 0 12px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
 

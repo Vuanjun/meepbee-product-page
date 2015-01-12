@@ -41,7 +41,12 @@
     border-left: 0;
     outline: 0;
   }
+
+
   &__btn--minus {
+    &:hover {
+      cursor: pointer;
+    }
     width: 33%;
     left: 0;
     background: $text-color-black-light;
@@ -50,6 +55,9 @@
     border-right: 1px solid $text-color-black-light;
   }
   &__btn--plus {
+    &:hover {
+      cursor: pointer;
+    }
     width: 33%;
     right: 0;
     background: $text-color-black-light;

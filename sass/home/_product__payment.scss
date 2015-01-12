@@ -1,6 +1,7 @@
 .product__payment {
   padding: 12px;
   background: $bg-color-gray-light;
+  position: relative;
 }
 
 .product__payment__cashFlow,
@@ -114,7 +115,7 @@
   font-weight: bold;
   margin: 0 auto;
   border-radius: 2px;
-  margin-bottom: $paddingDesktop;
+  margin-bottom: 14px;
 }
 
 @include susy-breakpoint($desktop, 12) {
@@ -138,9 +139,18 @@
     text-align: left;
   }
 
+  .product__payment__summary {
+    position: absolute;
+    bottom: -59px;
+    right: 0;
+    left: 0;
+    z-index: 2;
+  }
+
   .product__payment__summary__confirmBtn {
     width: 100%;
     max-width: none;
+    margin-bottom: $paddingDesktop;
   }
 
 }

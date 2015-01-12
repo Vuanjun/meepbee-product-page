@@ -107,4 +107,8 @@
 
 
 @include susy-breakpoint($desktop, 12) {
+  .owner {
+    padding: 3em 0;
+    margin-bottom: 0;
+  }
 }

@@ -55,8 +55,11 @@
 @include susy-breakpoint($desktop, 12) {
   .recipientInfo {
     width: 35%;
-    float: right;
-    padding: $paddingDesktop;
+    // float: right;
+    position: absolute;
+    bottom: -475px;
+    right: 0;
+    padding: 91px $paddingDesktop $paddingDesktop $paddingDesktop;
   }
   .confirmBtn {
     margin-top: 18px;

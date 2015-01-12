@@ -52,16 +52,16 @@ paymentSummaryCofrimBtn.onclick = function() {
     paymentSummaryCofrimBtn.innerHTML = "關閉資訊";
     owner.classList.add('ownerOnLeft');
     ownerAvatar.classList.add('avatarSmall');
-    recipientInfo.classList.add('recipientInfoPush');
+    // recipientInfo.classList.add('recipientInfoPush');
     // if(window.innerWidth>=1024 && window.innerWidth<=1300) comment.style.marginTop="-62px";
     paymentSummary.style.display="block";
-    recipientInfo.style.display="block";
+    recipientInfo.style.display="initial";
   } else {
     paymentDetailIsOpen = false;
     paymentSummaryCofrimBtn.innerHTML = "計算價錢";
     owner.classList.remove('ownerOnLeft');
     ownerAvatar.classList.remove('avatarSmall');
-    recipientInfo.classList.add('recipientInfoPush');
+    // recipientInfo.classList.add('recipientInfoPush');
     // if(window.innerWidth>=1024 && window.innerWidth<=1300) comment.style.marginTop="12px";
     paymentSummary.style.display="none";
     recipientInfo.style.display="none";
@@ -82,3 +82,21 @@ paymentSummaryCofrimBtn.onclick = function() {
 //     comment.style.marginTop= airBetween + 'px';
 //   }
 // }
+
+var plusBtn = document.getElementsByClassName('js-plus-btn')[0];
+var minusBtn = document.getElementsByClassName('js-minus-btn')[0];
+
+plusBtn.addEventListener('click', increaseNo);
+// plusBtn.addEventListener('touchstart', increaseNo);
+// plusBtn.on('tap', increaseNo);
+minusBtn.addEventListener('click', decreaseNo);
+
+function increaseNo(e) {
+  e.path[1].firstChild.innerHTML = Number(e.path[1].firstChild.innerHTML) + 1;
+}
+
+function decreaseNo(e) {
+  if(Number(e.path[1].firstChild.innerHTML)>1){
+    e.path[1].firstChild.innerHTML = Number(e.path[1].firstChild.innerHTML) - 1;
+  }
+}

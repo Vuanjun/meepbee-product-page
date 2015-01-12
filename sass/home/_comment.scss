@@ -62,13 +62,13 @@
 
 @include susy-breakpoint($desktop, 12) {
   .comment {
-    width: calc(65% - #{$paddingDesktop});
-    margin-top: 12px;
-    display: inline-block;
-    float: left;
+    // width: calc(65% - #{$paddingDesktop});
+    // margin-top: 12px;
+    // display: inline-block;
+    // float: left;
   }
   .comment__label {
-    margin-bottom: $paddingDesktop;
+    margin-bottom: 1em;
     font-size: 30px;
     line-height: 54px;
     text-align: left;
