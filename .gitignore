@@ -65,3 +65,4 @@ dist/
 ### Sass ###
 .sass-cache
 *.css.map
+key.js
