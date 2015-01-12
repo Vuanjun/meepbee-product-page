@@ -6,23 +6,27 @@ var fs = require('co-fs');
 var views = require('co-views');
 var render = views('.', {default: 'jade'});
 var router = require('koa-router');
-// var liveload = require('koa-liveload');
-// var session = require('koa-session');
+var Parse = require('parse-restapi');
+var keys = require('./key');
+var meepbee = new Parse(keys.appId, keys.restKey);
+var thunkify = require('thunkify');
+var getObject = thunkify(meepbee.classes('Products').get);
 
 app.use(router(app));
 app.use(mount('/public', serve(__dirname + '/public')));
 
-// app.use(liveload(__dirname, {
-//  includes: ['scss','jade']
-// }))
 
-// app.keys = ['secret', 'keys'];
-// app.use(session());
+app.get('/', function* (next) {
+    var html = yield render('src/home/index.jade');
+    this.body = html;
+});
 
-app.get('/', function *(next) {
-  var html = yield render('src/home/index.jade');
-  this.status = 200;
-  this.body = html;
+app.get('/:productId', function* (next) {
+    var productId = this.params.productId;
+    var obj = yield getObject(productId);
+    var html = yield render('src/home/index.jade', {product: obj[0].body});
+    this.body = html;
+    //this.body = obj[0].body;
 });
 
 console.log('Hey sailor, Your server is on at port: 9000');
