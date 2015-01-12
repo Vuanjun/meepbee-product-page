@@ -1519,3 +1519,11 @@ html {
 .recipientInfoPush {
   margin-bottom: 26px;
 }
+
+.SummaryShort {
+  bottom: -73px;
+}
+
+.recipientInfoShort {
+  bottom: -407px;
+}
