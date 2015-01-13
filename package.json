@@ -36,6 +36,6 @@
     "koa-router": "^3.4.0",
     "koa-session": "^2.0.0",
     "koa-static": "^1.4.6",
-    "parse-restapi": "0.0.2"
+    "parse-restapi": "0.0.3"
   }
 }

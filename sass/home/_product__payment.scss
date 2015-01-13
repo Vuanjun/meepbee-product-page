@@ -31,11 +31,13 @@
   text-align: center;
 }
 
-.prodcut__payment__cashFlow__actionSet__atmBtn,
-.product__payment__cashFlow__actionSet__payOnArrivalBtn,
-.product__payment__cashFlow__actionSet__payInPersonBtn,
-.prodcut__payment__logistics__actionSet__deliverToHomeBtn,
-.product__payment__logistics__actionSet__deliverInPersonBtn {
+// .prodcut__payment__cashFlow__actionSet__atmBtn,
+// .product__payment__cashFlow__actionSet__payOnArrivalBtn,
+// .product__payment__cashFlow__actionSet__payInPersonBtn,
+// .prodcut__payment__logistics__actionSet__deliverToHomeBtn,
+// .product__payment__logistics__actionSet__deliverInPersonBtn {
+.prodcut__payment__cashFlow__actionSet__btn,
+.prodcut__payment__logistics__actionSet__btn {
   &:hover {
     cursor: pointer;
   }
@@ -51,14 +53,16 @@
   transition: 0.3s all;
 }
 
-.product__payment__cashFlow__actionSet__payInPersonBtn,
-.product__payment__logistics__actionSet__deliverInPersonBtn {
+// exception: this is for a special case
+.last {
   margin-right: 0;
 }
 
 .product__payment__summary,
-.product__payment__summary__cashFlowAndLogistics__cashFlow,
-.product__payment__summary__cashFlowAndLogistics__logistics {
+.product__payment__summary__wrap__cashFlow,
+.product__payment__summary__wrap__logistics
+.product__payment__summary__wrap__product,
+.product__payment__summary__wrap__total {
   @include pie-clearfix;
 }
 
@@ -70,30 +74,38 @@
   display: none;
 }
 
-.product__payment__summary__cashFlowAndLogistics {
+.product__payment__summary__wrap {
   display: inline-block;
   float: right;
 }
 
-.product__payment__summary__cashFlowAndLogistics__cashFlow__label,
-.product__payment__summary__cashFlowAndLogistics__cashFlow__price,
-.product__payment__summary__cashFlowAndLogistics__logistics__label,
-.product__payment__summary__cashFlowAndLogistics__logistics__price
+.product__payment__summary__wrap__cashFlow__label,
+.product__payment__summary__wrap__cashFlow__price,
+.product__payment__summary__wrap__logistics__label,
+.product__payment__summary__wrap__logistics__price,
+.product__payment__summary__wrap__product__label,
+.product__payment__summary__wrap__product__price,
+.product__payment__summary__wrap__total__label,
+.product__payment__summary__wrap__total__price
  {
   display: inline-block;
   font-size: 12px;
   line-height: 18px;
 }
 
-.product__payment__summary__cashFlowAndLogistics__cashFlow__label,
-.product__payment__summary__cashFlowAndLogistics__logistics__label {
+.product__payment__summary__wrap__cashFlow__label,
+.product__payment__summary__wrap__logistics__label,
+.product__payment__summary__wrap__product__label,
+.product__payment__summary__wrap__total__label {
   float: left;
   font-weight: bold;
   color: $text-color-black-dark;
 }
 
-.product__payment__summary__cashFlowAndLogistics__cashFlow__price,
-.product__payment__summary__cashFlowAndLogistics__logistics__price {
+.product__payment__summary__wrap__cashFlow__price,
+.product__payment__summary__wrap__logistics__price,
+.product__payment__summary__wrap__product__price,
+.product__payment__summary__wrap__total__price {
   float: right;
   font-weight: bold;
   color: $text-color-black-dark;
@@ -125,7 +137,7 @@
     float: right;
     display: inline-block;
     background: $bg-color-gray-light;
-    padding: $paddingDesktop;
+    padding: 27px $paddingDesktop;
     padding-bottom: 0;
     margin-bottom: 0;
   }
@@ -141,7 +153,7 @@
 
   .product__payment__summary {
     position: absolute;
-    bottom: -59px;
+    bottom: -68px;
     right: 0;
     left: 0;
     z-index: 2;
@@ -150,7 +162,7 @@
   .product__payment__summary__confirmBtn {
     width: 100%;
     max-width: none;
-    margin-bottom: $paddingDesktop;
+    margin-bottom: 1.5em;
   }
 
 }

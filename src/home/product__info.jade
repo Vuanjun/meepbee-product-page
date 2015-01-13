@@ -1,6 +1,7 @@
+-var price = Number.parseInt(obj.price.split('$')[1].replace(/\D/g,''))
 .product__info
   .product__info__title=obj.title
   .product__info__price
     .product__info__price__currency=obj.price.split('$')[0]+ '$'
-    .product__info__price__figure=obj.price.split('$')[1]
+    .product__info__price__figure=price
   .product__info__description=obj.story

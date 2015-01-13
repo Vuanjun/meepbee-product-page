@@ -836,6 +836,8 @@ html {
   font-size: 14px;
   line-height: 24px;
   font-weight: bold;
+  max-height: 96px;
+  overflow-y: scroll;
 }
 
 @media (min-width: 1024px) {
@@ -927,11 +929,8 @@ html {
   clear: both;
 }
 
-.prodcut__payment__cashFlow__actionSet__atmBtn,
-.product__payment__cashFlow__actionSet__payOnArrivalBtn,
-.product__payment__cashFlow__actionSet__payInPersonBtn,
-.prodcut__payment__logistics__actionSet__deliverToHomeBtn,
-.product__payment__logistics__actionSet__deliverInPersonBtn {
+.prodcut__payment__cashFlow__actionSet__btn,
+.prodcut__payment__logistics__actionSet__btn {
   display: inline-block;
   background: #d9d9d9;
   color: #424242;
@@ -943,27 +942,27 @@ html {
   height: 54px;
   transition: 0.3s all;
 }
-.prodcut__payment__cashFlow__actionSet__atmBtn:hover,
-.product__payment__cashFlow__actionSet__payOnArrivalBtn:hover,
-.product__payment__cashFlow__actionSet__payInPersonBtn:hover,
-.prodcut__payment__logistics__actionSet__deliverToHomeBtn:hover,
-.product__payment__logistics__actionSet__deliverInPersonBtn:hover {
+.prodcut__payment__cashFlow__actionSet__btn:hover,
+.prodcut__payment__logistics__actionSet__btn:hover {
   cursor: pointer;
 }
 
-.product__payment__cashFlow__actionSet__payInPersonBtn,
-.product__payment__logistics__actionSet__deliverInPersonBtn {
+.last {
   margin-right: 0;
 }
 
 .product__payment__summary,
-.product__payment__summary__cashFlowAndLogistics__cashFlow,
-.product__payment__summary__cashFlowAndLogistics__logistics {
+.product__payment__summary__wrap__cashFlow,
+.product__payment__summary__wrap__logistics
+.product__payment__summary__wrap__product,
+.product__payment__summary__wrap__total {
   *zoom: 1;
 }
 .product__payment__summary:after,
-.product__payment__summary__cashFlowAndLogistics__cashFlow:after,
-.product__payment__summary__cashFlowAndLogistics__logistics:after {
+.product__payment__summary__wrap__cashFlow:after,
+.product__payment__summary__wrap__logistics
+.product__payment__summary__wrap__product:after,
+.product__payment__summary__wrap__total:after {
   content: "";
   display: table;
   clear: both;
@@ -977,29 +976,37 @@ html {
   display: none;
 }
 
-.product__payment__summary__cashFlowAndLogistics {
+.product__payment__summary__wrap {
   display: inline-block;
   float: right;
 }
 
-.product__payment__summary__cashFlowAndLogistics__cashFlow__label,
-.product__payment__summary__cashFlowAndLogistics__cashFlow__price,
-.product__payment__summary__cashFlowAndLogistics__logistics__label,
-.product__payment__summary__cashFlowAndLogistics__logistics__price {
+.product__payment__summary__wrap__cashFlow__label,
+.product__payment__summary__wrap__cashFlow__price,
+.product__payment__summary__wrap__logistics__label,
+.product__payment__summary__wrap__logistics__price,
+.product__payment__summary__wrap__product__label,
+.product__payment__summary__wrap__product__price,
+.product__payment__summary__wrap__total__label,
+.product__payment__summary__wrap__total__price {
   display: inline-block;
   font-size: 12px;
   line-height: 18px;
 }
 
-.product__payment__summary__cashFlowAndLogistics__cashFlow__label,
-.product__payment__summary__cashFlowAndLogistics__logistics__label {
+.product__payment__summary__wrap__cashFlow__label,
+.product__payment__summary__wrap__logistics__label,
+.product__payment__summary__wrap__product__label,
+.product__payment__summary__wrap__total__label {
   float: left;
   font-weight: bold;
   color: #212121;
 }
 
-.product__payment__summary__cashFlowAndLogistics__cashFlow__price,
-.product__payment__summary__cashFlowAndLogistics__logistics__price {
+.product__payment__summary__wrap__cashFlow__price,
+.product__payment__summary__wrap__logistics__price,
+.product__payment__summary__wrap__product__price,
+.product__payment__summary__wrap__total__price {
   float: right;
   font-weight: bold;
   color: #212121;
@@ -1028,7 +1035,7 @@ html {
     float: right;
     display: inline-block;
     background: #f3f3f3;
-    padding: 2.5em;
+    padding: 27px 2.5em;
     padding-bottom: 0;
     margin-bottom: 0;
   }
@@ -1045,7 +1052,7 @@ html {
 
   .product__payment__summary {
     position: absolute;
-    bottom: -59px;
+    bottom: -68px;
     right: 0;
     left: 0;
     z-index: 2;
@@ -1054,7 +1061,7 @@ html {
   .product__payment__summary__confirmBtn {
     width: 100%;
     max-width: none;
-    margin-bottom: 2.5em;
+    margin-bottom: 1.5em;
   }
 }
 .product__payment__quantityBox {
@@ -1205,9 +1212,9 @@ html {
   .recipientInfo {
     width: 100%;
     position: absolute;
-    bottom: -475px;
+    bottom: -462px;
     left: 0;
-    padding: 91px 2.5em 2.5em 2.5em;
+    padding: 94px 2.5em 1.5em 2.5em;
   }
 
   .confirmBtn {

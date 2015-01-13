@@ -4,29 +4,30 @@
     .product__payment__cashFlow__label 付款方式
     .product__payment__cashFlow__actionSet.js-cashFlow-action
       -for(var i = 0; i<obj.payments.length; i++)
-        if obj.payments[i].tradingWay == 'ATM轉賬'
-          .prodcut__payment__cashFlow__actionSet__atmBtn.js-atmBtn ATM轉賬
-        if obj.payments[i].tradingWay == '貨到付款'
-          .product__payment__cashFlow__actionSet__payOnArrivalBtn.js-payOnArrivalBtn 貨到付款
-        if obj.payments[i].tradingWay == '面交'
-          .product__payment__cashFlow__actionSet__payInPersonBtn.js-payInPersonBtn 面交
+        if i!=obj.payments.length-1
+          .prodcut__payment__cashFlow__actionSet__btn=obj.payments[i].tradingWay
+        else
+          .prodcut__payment__cashFlow__actionSet__btn.last=obj.payments[i].tradingWay
   .product__payment__logistics
     .product__payment__logistics__label 收件方式
     .product__payment__logistics__actionSet.js-logistics-action
-      -for(var i = 0; i<obj.payments.length; i++)
-        if obj.shippings[i].shippingWay == '宅配'
-          .prodcut__payment__logistics__actionSet__deliverToHomeBtn.js-deliverToHomeBtn 宅配
-        if obj.shippings[i].shippingWay == '面交'
-          .product__payment__logistics__actionSet__deliverInPersonBtn.js-deliverInPersonBtn 面交
+      -for(var i = 0; i<obj.shippings.length; i++)
+        if i!=obj.shippings.length-1
+          .prodcut__payment__logistics__actionSet__btn(data-fee=obj.shippings[i])=obj.shippings[i].shippingWay
+        else
+          .prodcut__payment__logistics__actionSet__btn(data-fee=obj.shippings[i]).last=obj.shippings[i].shippingWay
   .product__payment__summary__confirmBtn.js-payment-confirmBtn 計算價錢
   .product__payment__summary.js-payment-summary
-    .product__payment__summary__cashFlowAndLogistics
-      .product__payment__summary__cashFlowAndLogistics__cashFlow
-        .product__payment__summary__cashFlowAndLogistics__cashFlow__label 運費：
-        .product__payment__summary__cashFlowAndLogistics__cashFlow__price NT$50
-      .product__payment__summary__cashFlowAndLogistics__logistics
-        .product__payment__summary__cashFlowAndLogistics__logistics__label 總計：
-        .product__payment__summary__cashFlowAndLogistics__logistics__price NT$2,730
+    .product__payment__summary__wrap
+      .product__payment__summary__wrap__logistics
+        .product__payment__summary__wrap__logistics__label 運送費用：
+        .product__payment__summary__wrap__logistics__price.js-product-cost 0
+      .product__payment__summary__wrap__product
+        .product__payment__summary__wrap__product__label 商品費用：
+        .product__payment__summary__wrap__product__price.js-product-cost=price
+      .product__payment__summary__wrap__total
+        .product__payment__summary__wrap__total__label 總計費用：
+        .product__payment__summary__wrap__total__price.js-product-cost=price
   include recipientInfo
 
 
