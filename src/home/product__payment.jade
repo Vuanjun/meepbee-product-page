@@ -13,21 +13,21 @@
     .product__payment__logistics__actionSet.js-logistics-action
       -for(var i = 0; i<obj.shippings.length; i++)
         if i!=obj.shippings.length-1
-          .prodcut__payment__logistics__actionSet__btn(data-fee=obj.shippings[i])=obj.shippings[i].shippingWay
+          .prodcut__payment__logistics__actionSet__btn(data-fee=obj.shippings[i].fee)=obj.shippings[i].shippingWay
         else
-          .prodcut__payment__logistics__actionSet__btn(data-fee=obj.shippings[i]).last=obj.shippings[i].shippingWay
+          .prodcut__payment__logistics__actionSet__btn(data-fee=obj.shippings[i].fee).last=obj.shippings[i].shippingWay
   .product__payment__summary__confirmBtn.js-payment-confirmBtn 計算價錢
   .product__payment__summary.js-payment-summary
     .product__payment__summary__wrap
       .product__payment__summary__wrap__logistics
         .product__payment__summary__wrap__logistics__label 運送費用：
-        .product__payment__summary__wrap__logistics__price.js-product-cost 0
+        .product__payment__summary__wrap__logistics__price.js-logistics-cost 0
       .product__payment__summary__wrap__product
         .product__payment__summary__wrap__product__label 商品費用：
-        .product__payment__summary__wrap__product__price.js-product-cost=price
+        .product__payment__summary__wrap__product__price=price
       .product__payment__summary__wrap__total
         .product__payment__summary__wrap__total__label 總計費用：
-        .product__payment__summary__wrap__total__price.js-product-cost=price
+        .product__payment__summary__wrap__total__price.js-total-cost=price
   include recipientInfo
 
 

@@ -33,6 +33,17 @@ function choose(e) {
   }
 
   e.target.classList.add('isChosen');
+
+  var price = document.getElementsByClassName('js-product-price')[0].innerHTML;
+  price = ~~price.replace(/\D/g, '');
+
+  var cost = ~~e.target.getAttribute('data-fee');
+  var logisticsCost = document.getElementsByClassName('js-logistics-cost')[0];
+  var totalCost = document.getElementsByClassName('js-total-cost')[0];
+
+  logisticsCost.innerHTML=cost;
+  totalCost.innerHTML= cost + price;
+
 }
 
 var paymentSummaryCofrimBtn = document.getElementsByClassName('js-payment-confirmBtn')[0]
