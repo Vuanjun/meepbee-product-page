@@ -1,113 +1,131 @@
-// function Carousel (el) {
+function rotateLeft(arr, num) {
+  num = num || 1;
+  for (var i=0; i < num; ++i) {
+    arr.push(arr.shift());
+  }
+  return arr;
+}
 
-//   var _self = this;
+function rotateRight(arr, num) {
+  num = num || 1;
+  for (var i=0; i < num; ++i) {
+    arr.unshift(arr.pop());
+  }
+  return arr;
+}
 
-//   _self.el = el;
+function fadeIn(el) {
+  el.style.opacity = 0;
 
-//   _self.prevBtn = _self.el.childNodes[0].childNodes[0]
-//   _self.nextBtn = _self.el.childNodes[0].childNodes[1];
+  var last = +new Date()
+  var tick = function () {
+    el.style.opacity = +el.style.opacity + (new Date() - last) / 400;
+    last = +new Date()
 
-//   _self.activeFrameIndex = 0;
+    if (+el.style.opacity < 1) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+    }
+  };
 
-//   _self.photoItemArray = [
-//     _self.el.childNodes[0].childNodes[2],
-//     _self.el.childNodes[1],
-//     _self.el.childNodes[2],
-//     _self.el.childNodes[3],
-//     _self.el.childNodes[4]
-//   ];
+  tick();
+}
+function insertDom(mediaArr) {
+  var displayBoxImg = document.querySelector('.js-displayBox img');
+  var subFrames = document.querySelectorAll('.js-subFrame');
+  mediaArr.forEach(function (media, index) {
+    if (index === 0) {
+      displayBoxImg.src = media.url;
+      fadeIn(displayBoxImg);
+    } else {
+      subFrameImg[index - 1].src = media.url;
+      fadeIn(subFrameImg[index - 1]);
+    }
+  });
+}
 
-//   _self.nextBtn.addEventListener('click', _self.switchToNext.bind(_self));
+function isImage(data) {
+  if (data.url) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
-// }
+function renderDisplayBox(data) {
+  var displayBox = document.querySelector('.js-displayBox');
+  if (isImage(data) === true) {
+    displayBox.querySelector('img').src = data.url;
+  } else {
+    // process video
+    displayBox.querySelector('img').remove();
+    data.style.display = '';
+    document.querySelector('.js-activeFrame').appendChild(data);
+  }
+}
 
-// Carousel.prototype.getActiveFrameIndex = function() {
+function renderSubFrame(data, i) {
+  var subFrames = document.querySelectorAll('.js-subFrame');
+  if (isImage(data) === true) {
+    subFrames[i - 1].querySelector('img').src = data.url;
+  } else {
+    // process video
+  }
+}
 
-//   var _self = this;
-
-//   var patt = new RegExp('active');
-
-//   for(var i = 0 ; i<_self.photoItemArray.length; i++) {
-//     if(patt.test(_self.photoItemArray[i].className)) return i;
-//   }
-
-// }
-
-// Carousel.prototype.switchToNext = function() {
-
-//   var _self = this;
-
-//   var aboutToFadeOutIndex = 0;
-//   var aboutToFadeInIndex = 0;
-
-//   _self.activeFrameIndex = _self.getActiveFrameIndex();
-
-//   if( _self.activeFrameIndex==4 ) {
-//     aboutToFadeOutIndex = _self.activeFrameIndex%4 + 4;
-//     aboutToFadeInIndex = _self.activeFrameIndex%4;
-//   } else {
-//     aboutToFadeOutIndex = _self.activeFrameIndex%4;
-//     aboutToFadeInIndex = _self.activeFrameIndex%4 + 1;
-//   }
-
-//   _self.photoItemArray[aboutToFadeOutIndex].classList.remove('js-activeFrame');
-//   _self.photoItemArray[aboutToFadeOutIndex].classList.add('js-subFrame');
-//   _self.photoItemArray[aboutToFadeInIndex].classList.remove('js-subFrame');
-//   _self.photoItemArray[aboutToFadeInIndex].classList.add('js-activeFrame');
-//   _self.el.appendChild(_self.photoItemArray[aboutToFadeOutIndex]);
-//   _self.el.childNodes[0].appendChild(_self.photoItemArray[aboutToFadeInIndex]);
-
-// }
-
-
-
-// window.addEventListener('load', function() {
-
-//   var carouselBoxDiv = document.getElementsByClassName('js-carouselBox')[0];
-
-//   var carousel = new Carousel(carouselBoxDiv);
-
-
-// });
-
-
-// function c2 (el) {
-//   //find all image => add data-idx
-
-
-//   //find prevBtn => add click listenr
-//   //next => add listener
-
-//   //el => add click listener
-
-// }
-
-// function c2_destroy(el) {
-//   find prevBtn => remove click
-//   find nextBtn =>
-//   el remove click
-
-// }
-
-// function nextListen(e) {
-//   e.target. => subling find active => classLIst active remove
-
-//   // calculate nextIdx
-//   //move data-idx to active position
-//   //seet carousel-el's data-active = next-idx
-// }
-
-// frameClickListener (e) {
-
-//   if e.target is subFrame {
-
-//       nextIdx = subFrame's data-idx;
-//       //rearrange dom
-//       e.target.parent .... carousel-el => data-active nextIdx;
-//   }
-// }
+function renderDOM(data) {
+  data.forEach(function (d, i) {
+    if (i === 0) {
+      renderDisplayBox(d);
+    } else {
+      renderSubFrame(d, i);
+    }
+  });
+}
 
 window.addEventListener('load', function() {
+
+  var prevBtn = document.querySelector('.js-prevBtn');
+  var nextBtn = document.querySelector('.js-nextBtn');
+  var mediaData = JSON.parse(document.querySelector('script[data-frames="app_data"]').innerHTML)
+  var video = document.querySelector('video')
+  mediaData.push(video);
+
+  var subFrames = document.querySelectorAll('.js-subFrame');
+  Array.prototype.forEach.call(subFrames, function (subFrame, index) {
+    subFrame.addEventListener('click', function () {
+      var rotated = rotateLeft(mediaData, index + 1);
+      renderDOM(rotated);
+    });
+  });
+
+  nextBtn.addEventListener('click', function () {
+    var rotated = rotateLeft(mediaData);
+    renderDOM(rotated);
+  });
+
+  prevBtn.addEventListener('click', function () {
+    var rotated = rotateRight(mediaData);
+    renderDOM(rotated);
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   var carousel = function(el) {
 
@@ -264,8 +282,8 @@ window.addEventListener('load', function() {
   }
 
 
-  var carouselBoxDiv = document.getElementsByClassName('js-carouselBox')[0];
+  //var carouselBoxDiv = document.getElementsByClassName('js-carouselBox')[0];
 
-  carousel(carouselBoxDiv);
+  //carousel(carouselBoxDiv);
 
 });
