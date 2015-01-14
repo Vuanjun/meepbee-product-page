@@ -1,13 +1,13 @@
 .owner.js-owner
   .owner__avatar.js-ownerAvatar.photoWrap
     img.owner__avatar__image.photoInner(src="public/img/boss.png")
-  .owner__name=obj.objectId
+  .owner__name=obj.seller.name
   .owner__email
     .owner__email__label 電子郵件：
-    .owner__email__content meepshop@gmail.com
+    .owner__email__content=obj.seller.email
   .owner__phone
     .owner__phone__label 電話號碼：
-    .owner__phone__content 0980-123-456
+    .owner__phone__content=obj.seller.mobile
   .owner__socialMedia
     a.owner__socialMedia__fb f
     a.owner__socialMedia__google g

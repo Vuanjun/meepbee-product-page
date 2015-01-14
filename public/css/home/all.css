@@ -853,6 +853,30 @@ html {
 .product__socialMedia {
   text-align: left;
 }
+.product__socialMedia__liked {
+  display: inline-block;
+  float: right;
+  background: #0ed1a4;
+  line-height: 27px;
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+.product__socialMedia__liked__label, .product__socialMedia__liked__count {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 18px;
+}
+.product__socialMedia__liked__label {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+.product__socialMedia__liked__count {
+  margin-right: 7px;
+  background: white;
+  padding: 0px 8px;
+  border-radius: 2px;
+}
 .product__socialMedia__fb, .product__socialMedia__google, .product__socialMedia__instagram {
   display: inline-block;
   color: white;

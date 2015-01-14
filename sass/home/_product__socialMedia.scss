@@ -2,6 +2,33 @@
 
   text-align: left;
 
+  &__liked {
+    display: inline-block;
+    float: right;
+    background: rgb(14, 209, 164);
+    line-height: 27px;
+    padding: 4px 8px;
+    border-radius: 2px;
+    &__label,
+    &__count {
+      display: inline-block;
+      font-size: 12px;
+      line-height: 18px;
+    }
+    &__label {
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    &__count {
+      margin-right: 7px;
+      background: white;
+      padding: 0px 8px;
+      border-radius: 2px;
+
+    }
+  }
+
   &__fb, &__google, &__instagram {
     display: inline-block;
     color: white;
