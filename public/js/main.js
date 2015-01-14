@@ -135,35 +135,35 @@ window.addEventListener('load', function() {
     var isOverlay = new RegExp('overlay');
 
     // 如果是主要的activeFrame且又是照片的話點擊就沒反應
-    if( isActive.test(e.path[1].className) && !isVideo.test(e.path[1].className) ) {
+    if( isActive.test(e.currentTarget.className) && !isVideo.test(e.currentTarget.className) ) {
       return undefined;
     }
-    else if ( isActive.test(e.path[1].className) && isOverlay.test(e.path[0].className) && e.path[1].lastChild.tagName=="VIDEO") {
+    else if ( isActive.test(e.currentTarget.className) && isOverlay.test(e.path[0].className) && e.currentTarget.lastChild.tagName=="VIDEO") {
       return undefined;
     }
-    else if ( e.path[1].lastChild.tagName=="VIDEO" ) {
-    //   if(e.path[1].lastChild.paused) {
+    else if ( e.currentTarget.lastChild.tagName=="VIDEO" ) {
+    //   if(e.currentTarget.lastChild.paused) {
 
-    //     if(e.path[1].lastChild.ended) {
-    //       console.log('停止了',e.path[1].lastChild.currentTime)
+    //     if(e.currentTarget.lastChild.ended) {
+    //       console.log('停止了',e.currentTarget.lastChild.currentTime)
     //     } else {
-    //       e.path[1].lastChild.play();
+    //       e.currentTarget.lastChild.play();
     //     }
 
     //   }
     //   else {
-    //     e.path[1].lastChild.pause();
+    //     e.currentTarget.lastChild.pause();
     //   }
     //   return undefined;
     }
 
     // 如果不是videoFrame的話就做
-    if( !isVideo.test(e.path[1].className) ) {
+    if( !isVideo.test(e.currentTarget.className) ) {
 
-      var carouselBox = e.path[2];
-      var displayBox = e.path[2].childNodes[0];
-      var activeFrameObj = e.path[2].childNodes[0].childNodes[2];
-      var aboutToFadeInObj = e.path[1];
+      var carouselBox = e.currentTarget.parentNode;
+      var displayBox = e.currentTarget.parentNode.childNodes[0];
+      var activeFrameObj = e.currentTarget.parentNode.childNodes[0].childNodes[2];
+      var aboutToFadeInObj = e.currentTarget;
 
       //刪除之前新增的videoTag
       if(activeFrameObj.tagName=="A") {
@@ -181,10 +181,10 @@ window.addEventListener('load', function() {
 
     } else { // 如果是videoFrame的話就做
 
-      var carouselBox = e.path[2];
-      var displayBox = e.path[2].childNodes[0];
-      var activeFrameObj = e.path[2].childNodes[0].childNodes[2];
-      var aboutToFadeInObj = e.path[1];
+      var carouselBox = e.currentTarget.parentNode;
+      var displayBox = e.currentTarget.parentNode.childNodes[0];
+      var activeFrameObj = e.currentTarget.parentNode.childNodes[0].childNodes[2];
+      var aboutToFadeInObj = e.currentTarget;
 
       activeFrameObj.classList.remove('js-activeFrame');
       activeFrameObj.classList.add('js-subFrame');
@@ -213,15 +213,15 @@ window.addEventListener('load', function() {
   function switchToPrev(e) {
 
     //如果有videoTag的話則先刪除
-    if(e.path[1].childNodes[2].lastChild.tagName=="VIDEO") {
-      var videoObj = e.path[1].childNodes[2].lastChild;
+    if(e.currentTarget.childNodes[2].lastChild.tagName=="VIDEO") {
+      var videoObj = e.currentTarget.childNodes[2].lastChild;
       var videoParent = videoObj.parentNode;
       videoParent.style.backgroundColor = null;
       videoParent.removeChild(videoObj);
     }
 
-    var activeFrameObj = e.path[2].childNodes[0].childNodes[2];
-    var photoItemArray = Array.prototype.slice.call(e.path[2].childNodes, 1);
+    var activeFrameObj = e.currentTarget.parentNode.childNodes[0].childNodes[2];
+    var photoItemArray = Array.prototype.slice.call(e.currentTarget.parentNode.childNodes, 1);
 
     var activeFrameIndex = 0;
 
@@ -232,22 +232,22 @@ window.addEventListener('load', function() {
     photoItemArray[activeFrameIndex+4].classList.remove('js-subFrame');
     photoItemArray[activeFrameIndex+4].classList.add('js-activeFrame');
 
-    e.path[2].insertBefore(photoItemArray[activeFrameIndex],e.path[2].childNodes[1]);
-    e.path[1].appendChild(photoItemArray[activeFrameIndex+4]);
+    e.currentTarget.parentNode.insertBefore(photoItemArray[activeFrameIndex],e.currentTarget.parentNode.childNodes[1]);
+    e.currentTarget.appendChild(photoItemArray[activeFrameIndex+4]);
   }
 
   function switchToNext(e) {
 
     //如果有videoTag的話則先刪除
-    if(e.path[1].childNodes[2].lastChild.tagName=="VIDEO") {
-      var videoObj = e.path[1].childNodes[2].lastChild;
+    if(e.currentTarget.childNodes[2].lastChild.tagName=="VIDEO") {
+      var videoObj = e.currentTarget.childNodes[2].lastChild;
       var videoParent = videoObj.parentNode;
       videoParent.style.backgroundColor = null;
       videoParent.removeChild(videoObj);
     }
 
-    var activeFrameObj = e.path[2].childNodes[0].childNodes[2];
-    var photoItemArray = Array.prototype.slice.call(e.path[2].childNodes, 1);
+    var activeFrameObj = e.currentTarget.parentNode.childNodes[0].childNodes[2];
+    var photoItemArray = Array.prototype.slice.call(e.currentTarget.parentNode.childNodes, 1);
 
     var activeFrameIndex = 0;
 
@@ -258,8 +258,8 @@ window.addEventListener('load', function() {
     photoItemArray[activeFrameIndex+1].classList.remove('js-subFrame');
     photoItemArray[activeFrameIndex+1].classList.add('js-activeFrame');
 
-    e.path[2].appendChild(photoItemArray[activeFrameIndex]);
-    e.path[1].appendChild(photoItemArray[activeFrameIndex+1]);
+    e.currentTarget.parentNode.appendChild(photoItemArray[activeFrameIndex]);
+    e.currentTarget.appendChild(photoItemArray[activeFrameIndex+1]);
   }
 
 
