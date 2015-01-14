@@ -12,10 +12,9 @@ html(lang='zh-TW')
     link(rel="icon", type="image/png", href="/public/img/appIcon.png")
 body
   include ../shared/header
-  //- include login
-  .container
+  include login
+  .container.js-container
     include product
-    //- include recipientInfo
     include comment
     include otherProduct
     include owner
