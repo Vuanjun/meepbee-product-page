@@ -41,6 +41,8 @@
   &:hover {
     cursor: pointer;
   }
+  letter-spacing: 1px;
+  font-weight: bold;
   display: inline-block;
   background: $bg-color-gray-medium;
   color: $text-color-black-medium;

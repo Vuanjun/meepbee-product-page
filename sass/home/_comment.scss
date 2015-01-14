@@ -50,6 +50,22 @@
     line-height: 21px;
   }
 
+  &__sendBtn {
+    &:hover {
+      background: lighten($theme-green, 3%);
+    }
+    background: $theme-green;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    line-height: 24px;
+    font-size: 12px;
+    width: 100%;
+    margin: 16px 0;
+  }
+
   &__nameAndMessage__message,
   &__nameAndMessage__message--field {
     width: 100%;
@@ -88,11 +104,24 @@
     float: left;
     width: calc(100% - 98px);
   }
+  .comment__person__sendBtn {
+    float: right;
+    width: auto;
+    padding: 8px 16px;
+    margin: 32px 0 0 0;
+    line-height: 32px;
+    font-size: 16px;
+  }
   .comment__person__nameAndMessage__name {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .comment__person__nameAndMessage__message {
     font-size: 16px;
     line-height: 24px;
   }
   .comment__person__nameAndMessage__message--field {
+    border-radius: 2px;
     font-size: 16px;
     height: 48px;
     padding-bottom: 12px;
