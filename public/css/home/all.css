@@ -1596,11 +1596,10 @@ html {
   width: calc(100% - 36px);
   margin: 0 auto;
   vertical-align: middle;
-  background: white;
   padding: 42px 18px;
   text-align: center;
   border-radius: 4px;
-  background: #fdffe1;
+  background: #F8F9D4;
 }
 
 .login__wrap__closeBtn {
@@ -1698,6 +1697,39 @@ html {
   .login__wrap {
     padding: 80px 64px;
     width: 500px;
+  }
+
+  .login__wrap__logo {
+    width: 80px;
+    padding-top: 80px;
+  }
+
+  .login__wrap__name,
+  .login__wrap__email,
+  .login__wrap__mobile {
+    text-align: left;
+  }
+  .login__wrap__name__label, .login__wrap__name__field,
+  .login__wrap__email__label,
+  .login__wrap__email__field,
+  .login__wrap__mobile__label,
+  .login__wrap__mobile__field {
+    width: 100%;
+  }
+  .login__wrap__name__label,
+  .login__wrap__email__label,
+  .login__wrap__mobile__label {
+    font-size: 18px;
+    line-height: 27px;
+    color: #424242;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  .login__wrap__name__field,
+  .login__wrap__email__field,
+  .login__wrap__mobile__field {
+    font-size: 16px;
+    line-height: 32px;
   }
 }
 .isChosen {
