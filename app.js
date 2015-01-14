@@ -11,7 +11,7 @@ var keys = require('./key');
 var meepbee = new Parse(keys.appId, keys.restKey);
 var thunkify = require('thunkify');
 var getProduct = thunkify(meepbee.classes('Products').getProduct);
-var getComment = thunkify(meepbee.classes('Comments').getAll);
+var getComment = thunkify(meepbee.classes('Comments').getComment);
 var getLike = thunkify(meepbee.classes('Likes').getLike);
 var getUser = thunkify(meepbee.users().get);
 
