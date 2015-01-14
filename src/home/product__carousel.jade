@@ -13,7 +13,12 @@
   //-   img.photoInner(src="http://placehold.it/900x900/33446a")
   //- .product__carousel__item.photoWrap.js-subFrame
   //-   img.photoInner(src="http://placehold.it/900x900/379834")
-  .product__carousel__item__videoBtn.js-subFrame
+  .product__carousel__item__videoBtn.js-subFrame.js-videoFrame
     .product__carousel__item__videoBtn__circle
     .product__carousel__item__videoBtn__triangle
     .product__carousel__item__videoBtn__overlay
+  video(style="display:none", controls)
+    source(src=obj.video.url, type="video/webm")
+    source(src=obj.video.url, type="video/ogg")
+    source(src=obj.video.url, type="video/quicktime")
+    | I'm sorry; your browser doesn't support HTML5 video.
