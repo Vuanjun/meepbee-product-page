@@ -130,6 +130,7 @@ window.addEventListener('load', function() {
   }
 
   function switchToCertain(e) {
+
     var isActive = new RegExp('js-activeFrame');
     var isVideo = new RegExp('product__carousel__item__videoBtn');
     var isOverlay = new RegExp('overlay');

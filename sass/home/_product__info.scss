@@ -29,6 +29,8 @@
   font-size: 14px;
   line-height: 24px;
   font-weight: bold;
+  max-height: 96px;
+  overflow-y: scroll;
 }
 
 @include susy-breakpoint($desktop, 12) {
