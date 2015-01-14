@@ -530,6 +530,12 @@ html {
   padding: 0 10px;
   margin-top: 8px;
   margin-right: 8px;
+  transition: 0.3s all;
+}
+.header__nav__logIn:hover,
+.header__nav__signUp:hover {
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .meepbeeLabel {
@@ -1603,13 +1609,20 @@ html {
   width: 36px;
   height: 36px;
 }
+.login__wrap__closeBtn:hover {
+  cursor: pointer;
+}
+.login__wrap__closeBtn:hover:before, .login__wrap__closeBtn:hover:after {
+  background: #0ED1A4;
+}
 .login__wrap__closeBtn:before, .login__wrap__closeBtn:after {
   content: '';
   position: absolute;
   top: 0;
   height: 100%;
   width: 2px;
-  background: #0ED1A4;
+  background: #666;
+  transition: 0.3s all;
 }
 .login__wrap__closeBtn:before {
   transform: rotate(45deg);
@@ -1677,6 +1690,16 @@ html {
   background: #0fdfaf;
 }
 
+@media (min-width: 768px) {
+  .login {
+    padding-top: 112px;
+  }
+
+  .login__wrap {
+    padding: 80px 64px;
+    width: 500px;
+  }
+}
 .isChosen {
   background: #424242;
   color: white;

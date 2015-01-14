@@ -52,6 +52,11 @@
   padding: 0 10px;
   margin-top: 8px;
   margin-right: 8px;
+  transition: 0.3s all;
+  &:hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
 }
 
 .meepbeeLabel {

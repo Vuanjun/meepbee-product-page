@@ -23,7 +23,13 @@
 }
 
 .login__wrap__closeBtn {
-
+  &:hover {
+    cursor: pointer;
+  }
+  &:hover:before,
+  &:hover:after {
+    background: $theme-green;
+  }
   &:before,
   &:after {
     content: '';
@@ -31,7 +37,8 @@
     top: 0;
     height: 100%;
     width: 2px;
-    background: $theme-green;
+    background: #666;
+    transition: 0.3s all;
   }
   &:before {
     transform: rotate(45deg);
@@ -97,3 +104,16 @@
     background: lighten($theme-green, 3%);
   }
 }
+
+
+@include susy-breakpoint($pad, 12) {
+  .login {
+    padding-top: 112px;
+  }
+  .login__wrap {
+    padding: 80px 64px;
+    width: 500px;
+  }
+}
+
+
