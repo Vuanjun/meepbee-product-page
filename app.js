@@ -6,14 +6,16 @@ var fs = require('co-fs');
 var views = require('co-views');
 var render = views('.', {default: 'jade'});
 var router = require('koa-router');
-var Parse = require('parse-restapi');
+var Parse = require('koa-parse-restapi');
 var keys = require('./key');
 var meepbee = new Parse(keys.appId, keys.restKey);
-var thunkify = require('thunkify');
-var getProduct = thunkify(meepbee.classes('Products').getProduct);
-var getComment = thunkify(meepbee.classes('Comments').getComment);
-var getLike = thunkify(meepbee.classes('Likes').getLike);
-var getUser = thunkify(meepbee.users().get);
+
+//var thunkify = require('thunkify');
+//var getProduct = thunkify(meepbee.classes('Products').getProduct);
+//var getComment = thunkify(meepbee.classes('Comments').getComment);
+//var getLike = thunkify(meepbee.classes('Likes').getLike);
+//var getUser = thunkify(meepbee.users().get);
+
 
 
 app.use(router(app));
@@ -26,23 +28,20 @@ app.get('/', function* (next) {
 
 app.get('/:productId', function* (next) {
   var productId = this.params.productId;
-
-  var product = yield getProduct(productId);
-  product = JSON.parse(product[0].body);
+  var product = yield meepbee.classes('Products').get(productId, '?include=seller');
+  product = JSON.parse(product.body);
   product.comments = [];
   product.like = []
-
-
-  var comments = yield getComment();
-  comments = JSON.parse(comments[0].body).results;
+  var comments = yield meepbee.classes('Comments').getAll('?include=commenter');
+  comments = JSON.parse(comments.body).results;
   comments.forEach(function (comment) {
     if (comment.product.objectId === productId) {
       product.comments.push(comment)
     }
   });
 
-  var likes = yield getLike();
-  likes = JSON.parse(likes[0].body).results;
+  var likes = yield meepbee.classes('Likes').getAll('?include=likedUser');
+  likes = JSON.parse(likes.body).results;
   likes.forEach(function (like) {
     if (like.likedProduct.objectId === productId) {
       product.like.push(like);
