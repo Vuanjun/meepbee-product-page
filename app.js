@@ -10,14 +10,6 @@ var Parse = require('koa-parse-restapi');
 var keys = require('./key');
 var meepbee = new Parse(keys.appId, keys.restKey);
 
-//var thunkify = require('thunkify');
-//var getProduct = thunkify(meepbee.classes('Products').getProduct);
-//var getComment = thunkify(meepbee.classes('Comments').getComment);
-//var getLike = thunkify(meepbee.classes('Likes').getLike);
-//var getUser = thunkify(meepbee.users().get);
-
-
-
 app.use(router(app));
 app.use(mount('/public', serve(__dirname + '/public')));
 
@@ -28,10 +20,12 @@ app.get('/', function* (next) {
 
 app.get('/:productId', function* (next) {
   var productId = this.params.productId;
+
   var product = yield meepbee.classes('Products').get(productId, '?include=seller');
   product = JSON.parse(product.body);
   product.comments = [];
   product.like = []
+
   var comments = yield meepbee.classes('Comments').getAll('?include=commenter');
   comments = JSON.parse(comments.body).results;
   comments.forEach(function (comment) {
