@@ -62,8 +62,8 @@ theOtherActionBtn.onclick = function(e) {
 
   var mobile = document.getElementsByClassName('js-mobile')[0];
   var submitBtn = document.getElementsByClassName('js-submitBtn')[0];
-
-
+  var password = document.getElementsByClassName('js-password')[0];
+  password.classList.remove('hide');
   if(e.currentTarget.innerHTML=="想要登入") {
     mobile.classList.add('hide');
     theOtherActionBtn.innerHTML = "現在註冊";
