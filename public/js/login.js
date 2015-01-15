@@ -17,25 +17,25 @@ function showAccount(e) {
     forgotPasswordBtn.classList.remove('hide');
     theOtherBtn.innerHTML = "現在註冊";
   }
-  // var container = document.getElementsByClassName('js-container')[0];
+  var container = document.getElementsByClassName('js-container')[0];
   var header = document.getElementsByClassName('js-header')[0];
-  // var footer = document.getElementsByClassName('js-footer')[0];
+  var footer = document.getElementsByClassName('js-footer')[0];
   var account = document.getElementsByClassName('js-account')[0];
-  // container.classList.add('hide');
+  container.classList.add('hide');
   header.classList.add('hide');
-  // footer.classList.add('hide');
+  footer.classList.add('hide');
   account.classList.add('show');
 }
 
 var closeBtn = document.getElementsByClassName('js-closeBtn')[0];
 closeBtn.onclick = function() {
-  // var container = document.getElementsByClassName('js-container')[0];
+  var container = document.getElementsByClassName('js-container')[0];
   var header = document.getElementsByClassName('js-header')[0];
-  // var footer = document.getElementsByClassName('js-footer')[0];
+  var footer = document.getElementsByClassName('js-footer')[0];
   var account = document.getElementsByClassName('js-account')[0];
-  // container.classList.remove('hide');
+  container.classList.remove('hide');
   header.classList.remove('hide');
-  // footer.classList.remove('hide');
+  footer.classList.remove('hide');
   account.classList.remove('show');
 }
 
