@@ -1579,7 +1579,7 @@ html {
     margin-bottom: 0;
   }
 }
-.login {
+.account {
   position: fixed;
   background: rgba(0, 0, 0, 0.7);
   top: 0;
@@ -1592,7 +1592,7 @@ html {
   display: none;
 }
 
-.login__wrap {
+.account__wrap {
   width: calc(100% - 36px);
   margin: 0 auto;
   vertical-align: middle;
@@ -1602,19 +1602,19 @@ html {
   background: #F8F9D4;
 }
 
-.login__wrap__closeBtn {
+.account__wrap__closeBtn {
   float: right;
   position: relative;
   width: 36px;
   height: 36px;
 }
-.login__wrap__closeBtn:hover {
+.account__wrap__closeBtn:hover {
   cursor: pointer;
 }
-.login__wrap__closeBtn:hover:before, .login__wrap__closeBtn:hover:after {
+.account__wrap__closeBtn:hover:before, .account__wrap__closeBtn:hover:after {
   background: #0ED1A4;
 }
-.login__wrap__closeBtn:before, .login__wrap__closeBtn:after {
+.account__wrap__closeBtn:before, .account__wrap__closeBtn:after {
   content: '';
   position: absolute;
   top: 0;
@@ -1623,58 +1623,76 @@ html {
   background: #666;
   transition: 0.3s all;
 }
-.login__wrap__closeBtn:before {
+.account__wrap__closeBtn:before {
   transform: rotate(45deg);
 }
-.login__wrap__closeBtn:after {
+.account__wrap__closeBtn:after {
   transform: rotate(-45deg);
 }
 
-.login__wrap__logo {
+.account__wrap__logo {
   width: 68px;
   position: relative;
   padding-top: 68px;
   margin: 0 auto;
   margin-bottom: 12px;
 }
-.login__wrap__logo img {
+.account__wrap__logo img {
   width: 100%;
   position: absolute;
   top: 0;
   display: block;
 }
 
-.login__wrap__name,
-.login__wrap__email,
-.login__wrap__mobile {
+.account__wrap__name,
+.account__wrap__email,
+.account__wrap__password,
+.account__wrap__mobile {
   text-align: left;
 }
-.login__wrap__name__label, .login__wrap__name__field,
-.login__wrap__email__label,
-.login__wrap__email__field,
-.login__wrap__mobile__label,
-.login__wrap__mobile__field {
+.account__wrap__name__label, .account__wrap__name__field,
+.account__wrap__email__label,
+.account__wrap__email__field,
+.account__wrap__password__label,
+.account__wrap__password__field,
+.account__wrap__mobile__label,
+.account__wrap__mobile__field {
   width: 100%;
 }
-.login__wrap__name__label,
-.login__wrap__email__label,
-.login__wrap__mobile__label {
+.account__wrap__name__label,
+.account__wrap__email__label,
+.account__wrap__password__label,
+.account__wrap__mobile__label {
   font-size: 14px;
   line-height: 21px;
   color: #424242;
   font-weight: bold;
   margin-bottom: 4px;
 }
-.login__wrap__name__field,
-.login__wrap__email__field,
-.login__wrap__mobile__field {
+.account__wrap__name__field,
+.account__wrap__email__field,
+.account__wrap__password__field,
+.account__wrap__mobile__field {
   margin-bottom: 8px;
   border: 1px solid #9e9e9e;
   border-radius: 2px;
 }
 
-.login__wrap__submit {
+.account_wrap__subAction {
+  display: inline-block;
+  font-size: 12px;
+  text-decoration: underline;
+  margin: 12px 4px 0;
+  line-height: 18px;
+}
+.account_wrap__subAction:hover {
+  cursor: pointer;
+  color: #212121;
+}
+
+.account__wrap__submit {
   display: block;
+  letter-spacing: 1px;
   width: 100%;
   background: #0ED1A4;
   color: white;
@@ -1684,50 +1702,56 @@ html {
   outline: none;
   margin: 18px 0;
   border-radius: 2px;
+  padding: 2px;
 }
-.login__wrap__submit:hover {
+.account__wrap__submit:hover {
   background: #0fdfaf;
 }
 
 @media (min-width: 768px) {
-  .login {
+  .account {
     padding-top: 112px;
   }
 
-  .login__wrap {
+  .account__wrap {
     padding: 80px 64px;
     width: 500px;
   }
 
-  .login__wrap__logo {
+  .account__wrap__logo {
     width: 80px;
     padding-top: 80px;
   }
 
-  .login__wrap__name,
-  .login__wrap__email,
-  .login__wrap__mobile {
+  .account__wrap__name,
+  .account__wrap__email,
+  .account__wrap__password,
+  .account__wrap__mobile {
     text-align: left;
   }
-  .login__wrap__name__label, .login__wrap__name__field,
-  .login__wrap__email__label,
-  .login__wrap__email__field,
-  .login__wrap__mobile__label,
-  .login__wrap__mobile__field {
+  .account__wrap__name__label, .account__wrap__name__field,
+  .account__wrap__email__label,
+  .account__wrap__email__field,
+  .account__wrap__password__label,
+  .account__wrap__password__field,
+  .account__wrap__mobile__label,
+  .account__wrap__mobile__field {
     width: 100%;
   }
-  .login__wrap__name__label,
-  .login__wrap__email__label,
-  .login__wrap__mobile__label {
+  .account__wrap__name__label,
+  .account__wrap__email__label,
+  .account__wrap__password__label,
+  .account__wrap__mobile__label {
     font-size: 18px;
     line-height: 27px;
     color: #424242;
     font-weight: bold;
     margin-bottom: 4px;
   }
-  .login__wrap__name__field,
-  .login__wrap__email__field,
-  .login__wrap__mobile__field {
+  .account__wrap__name__field,
+  .account__wrap__email__field,
+  .account__wrap__password__field,
+  .account__wrap__mobile__field {
     font-size: 16px;
     line-height: 32px;
   }
