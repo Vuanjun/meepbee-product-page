@@ -40,7 +40,7 @@ function isImage(data) {
 
 function renderDisplayBox(data) {
   var displayBox = document.querySelector('.js-displayBox');
-  var videoTag = document.querySelector('video')
+  var videoTag = document.querySelector('video');
   var img = displayBox.querySelector('img');
   if (isImage(data) === true) {
     img.style.display = '';
