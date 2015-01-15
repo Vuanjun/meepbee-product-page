@@ -46,12 +46,14 @@ function renderDisplayBox(data) {
     img.style.display = '';
     img.src = data.url
     videoTag.style.display = 'none';
+    fadeIn(img);
   } else {
     // process video
     img.style.display = 'none';
     videoTag.style.display = '';
     var activeFrame = document.querySelector('.js-activeFrame')
     activeFrame.style.backgroundColor = 'black';
+    fadeIn(videoTag);
   }
 }
 
