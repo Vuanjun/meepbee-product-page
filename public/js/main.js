@@ -29,19 +29,6 @@ function fadeIn(el) {
 
   tick();
 }
-function insertDom(mediaArr) {
-  var displayBoxImg = document.querySelector('.js-displayBox img');
-  var subFrames = document.querySelectorAll('.js-subFrame');
-  mediaArr.forEach(function (media, index) {
-    if (index === 0) {
-      displayBoxImg.src = media.url;
-      fadeIn(displayBoxImg);
-    } else {
-      subFrameImg[index - 1].src = media.url;
-      fadeIn(subFrameImg[index - 1]);
-    }
-  });
-}
 
 function isImage(data) {
   if (data.url) {
@@ -53,22 +40,55 @@ function isImage(data) {
 
 function renderDisplayBox(data) {
   var displayBox = document.querySelector('.js-displayBox');
+  var videoTag = document.querySelector('video')
+  var img = displayBox.querySelector('img');
   if (isImage(data) === true) {
-    displayBox.querySelector('img').src = data.url;
+    img.style.display = '';
+    img.src = data.url
+    videoTag.style.display = 'none';
   } else {
     // process video
-    displayBox.querySelector('img').remove();
-    data.style.display = '';
-    document.querySelector('.js-activeFrame').appendChild(data);
+    img.style.display = 'none';
+    videoTag.style.display = '';
+    var activeFrame = document.querySelector('.js-activeFrame')
+    activeFrame.style.backgroundColor = 'black';
   }
 }
 
 function renderSubFrame(data, i) {
   var subFrames = document.querySelectorAll('.js-subFrame');
+  var thisFrame = subFrames[i - 1];
+  var thisImage = thisFrame.querySelector('img');
   if (isImage(data) === true) {
-    subFrames[i - 1].querySelector('img').src = data.url;
+    if (thisImage === null) {
+      thisImage = document.createElement('img');
+      thisFrame.appendChild(thisImage)
+      thisImage.src = data.url
+      thisImage.classList.add('photoInner')
+    } else {
+      thisImage.src = data.url;
+    }
+    thisFrame.classList.remove('js-videoFrame');
+    var videoDivs = thisFrame.querySelectorAll('div');
+    if (videoDivs.length !== 0)
+      console.log(videoDivs);
+      for (var i=0; i < videoDivs.length; ++i) {
+        videoDivs[i].remove()
+      }
   } else {
     // process video
+    thisFrame.classList.add('js-videoFrame');
+    thisFrame.classList.add('product__carousel__item__videoBtn')
+    thisFrame.querySelector('img').remove()
+    var circle = document.createElement('div');
+    var triangle = document.createElement('div');
+    var overlay = document.createElement('div');
+    circle.classList.add('product__carousel__item__videoBtn__circle')
+    triangle.classList.add('product__carousel__item__videoBtn__triangle')
+    overlay.classList.add('product__carousel__item__videoBtn__overlay')
+    thisFrame.appendChild(circle)
+    thisFrame.appendChild(triangle)
+    thisFrame.appendChild(overlay)
   }
 }
 
@@ -100,6 +120,7 @@ window.addEventListener('load', function() {
 
   nextBtn.addEventListener('click', function () {
     var rotated = rotateLeft(mediaData);
+    console.log(rotated);
     renderDOM(rotated);
   });
 
@@ -107,183 +128,5 @@ window.addEventListener('load', function() {
     var rotated = rotateRight(mediaData);
     renderDOM(rotated);
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  var carousel = function(el) {
-
-    var prevBtn = document.querySelector('.js-prevBtn', el);
-    var nextBtn = document.querySelector('.js-nextBtn', el);
-
-    prevBtn.addEventListener('click', switchToPrev);
-    nextBtn.addEventListener('click', switchToNext);
-
-    var subFrameArray = document.querySelectorAll('.js-subFrame', el);
-
-    var activeFrameObj = document.querySelector('.js-activeFrame', el);
-
-    for(var i = 0; i<subFrameArray.length; i++) {
-      subFrameArray[i].addEventListener('click', switchToCertain);
-    }
-
-    activeFrameObj.addEventListener('click', switchToCertain);
-
-  }
-
-  function switchToCertain(e) {
-
-    var isActive = new RegExp('js-activeFrame');
-    var isVideo = new RegExp('product__carousel__item__videoBtn');
-    var isOverlay = new RegExp('overlay');
-
-    // 如果是主要的activeFrame且又是照片的話點擊就沒反應
-    if( isActive.test(e.currentTarget.className) && !isVideo.test(e.currentTarget.className) ) {
-      return undefined;
-    }
-    else if ( isActive.test(e.currentTarget.className) && isOverlay.test(e.path[0].className) && e.currentTarget.lastChild.tagName=="VIDEO") {
-      return undefined;
-    }
-    else if ( e.currentTarget.lastChild.tagName=="VIDEO" ) {
-    //   if(e.currentTarget.lastChild.paused) {
-
-    //     if(e.currentTarget.lastChild.ended) {
-    //       console.log('停止了',e.currentTarget.lastChild.currentTime)
-    //     } else {
-    //       e.currentTarget.lastChild.play();
-    //     }
-
-    //   }
-    //   else {
-    //     e.currentTarget.lastChild.pause();
-    //   }
-    //   return undefined;
-    }
-
-    // 如果不是videoFrame的話就做
-    if( !isVideo.test(e.currentTarget.className) ) {
-
-      var carouselBox = e.currentTarget.parentNode;
-      var displayBox = e.currentTarget.parentNode.childNodes[0];
-      var activeFrameObj = e.currentTarget.parentNode.childNodes[0].childNodes[2];
-      var aboutToFadeInObj = e.currentTarget;
-
-      //刪除之前新增的videoTag
-      if(activeFrameObj.tagName=="A") {
-        activeFrameObj.removeChild(activeFrameObj.lastChild)
-        activeFrameObj.style.backgroundColor=null;
-      }
-
-      activeFrameObj.classList.remove('js-activeFrame');
-      activeFrameObj.classList.add('js-subFrame');
-      aboutToFadeInObj.classList.remove('js-subFrame');
-      aboutToFadeInObj.classList.add('js-activeFrame');
-
-      carouselBox.appendChild(activeFrameObj);
-      displayBox.appendChild(aboutToFadeInObj);
-
-    } else { // 如果是videoFrame的話就做
-
-      var carouselBox = e.currentTarget.parentNode;
-      var displayBox = e.currentTarget.parentNode.childNodes[0];
-      var activeFrameObj = e.currentTarget.parentNode.childNodes[0].childNodes[2];
-      var aboutToFadeInObj = e.currentTarget;
-
-      activeFrameObj.classList.remove('js-activeFrame');
-      activeFrameObj.classList.add('js-subFrame');
-
-      aboutToFadeInObj.classList.remove('js-subFrame');
-      aboutToFadeInObj.classList.add('js-activeFrame');
-
-      carouselBox.appendChild(activeFrameObj);
-      displayBox.appendChild(aboutToFadeInObj);
-
-      // 新增videoTag
-      var video = document.createElement('video');
-      video.src = "public/video/video.mp4";
-      video.classList.add('product__carousel__item--video')
-      video.controls = true;
-      aboutToFadeInObj.appendChild(video);
-      aboutToFadeInObj.style.backgroundColor="black";
-
-      carouselBox.appendChild(activeFrameObj);
-      displayBox.appendChild(aboutToFadeInObj);
-
-    }
-
-  }
-
-  function switchToPrev(e) {
-
-    //如果有videoTag的話則先刪除
-    if(e.currentTarget.childNodes[2].lastChild.tagName=="VIDEO") {
-      var videoObj = e.currentTarget.childNodes[2].lastChild;
-      var videoParent = videoObj.parentNode;
-      videoParent.style.backgroundColor = null;
-      videoParent.removeChild(videoObj);
-    }
-
-    var activeFrameObj = e.currentTarget.parentNode.childNodes[0].childNodes[2];
-    var photoItemArray = Array.prototype.slice.call(e.currentTarget.parentNode.childNodes, 1);
-
-    var activeFrameIndex = 0;
-
-    photoItemArray.unshift(activeFrameObj);
-
-    photoItemArray[activeFrameIndex].classList.remove('js-activeFrame');
-    photoItemArray[activeFrameIndex].classList.add('js-subFrame');
-    photoItemArray[activeFrameIndex+4].classList.remove('js-subFrame');
-    photoItemArray[activeFrameIndex+4].classList.add('js-activeFrame');
-
-    e.currentTarget.parentNode.insertBefore(photoItemArray[activeFrameIndex],e.currentTarget.parentNode.childNodes[1]);
-    e.currentTarget.appendChild(photoItemArray[activeFrameIndex+4]);
-  }
-
-  function switchToNext(e) {
-
-    //如果有videoTag的話則先刪除
-    if(e.currentTarget.childNodes[2].lastChild.tagName=="VIDEO") {
-      var videoObj = e.currentTarget.childNodes[2].lastChild;
-      var videoParent = videoObj.parentNode;
-      videoParent.style.backgroundColor = null;
-      videoParent.removeChild(videoObj);
-    }
-
-    var activeFrameObj = e.currentTarget.parentNode.childNodes[0].childNodes[2];
-    var photoItemArray = Array.prototype.slice.call(e.currentTarget.parentNode.childNodes, 1);
-
-    var activeFrameIndex = 0;
-
-    photoItemArray.unshift(activeFrameObj);
-
-    photoItemArray[activeFrameIndex].classList.remove('js-activeFrame');
-    photoItemArray[activeFrameIndex].classList.add('js-subFrame');
-    photoItemArray[activeFrameIndex+1].classList.remove('js-subFrame');
-    photoItemArray[activeFrameIndex+1].classList.add('js-activeFrame');
-
-    e.currentTarget.parentNode.appendChild(photoItemArray[activeFrameIndex]);
-    e.currentTarget.appendChild(photoItemArray[activeFrameIndex+1]);
-  }
-
-
-  //var carouselBoxDiv = document.getElementsByClassName('js-carouselBox')[0];
-
-  //carousel(carouselBoxDiv);
 
 });

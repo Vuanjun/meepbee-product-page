@@ -4,6 +4,12 @@
     .product__carousel__displayBox__nextBtn.js-nextBtn
     .product__carousel__item.photoWrap.js-activeFrame
       img.photoInner(src=obj.images[0].url)
+
+      video(class="product__carousel__item--video", style="display:none", controls)
+        source(src=obj.video.url, type="video/webm")
+        source(src=obj.video.url, type="video/ogg")
+        source(src=obj.video.url, type="video/quicktime")
+        | I'm sorry; your browser doesn't support HTML5 video.
   -for(var i=1; i<obj.images.length; i++)
     .product__carousel__item.photoWrap.js-subFrame
       img.photoInner(src=obj.images[i].url)
@@ -17,8 +23,3 @@
     .product__carousel__item__videoBtn__circle
     .product__carousel__item__videoBtn__triangle
     .product__carousel__item__videoBtn__overlay
-  video(style="display:none", controls)
-    source(src=obj.video.url, type="video/webm")
-    source(src=obj.video.url, type="video/ogg")
-    source(src=obj.video.url, type="video/quicktime")
-    | I'm sorry; your browser doesn't support HTML5 video.
