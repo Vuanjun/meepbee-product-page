@@ -24,11 +24,13 @@ function showAccount(e) {
   var container = document.getElementsByClassName('js-container')[0];
   var header = document.getElementsByClassName('js-header')[0];
   var footer = document.getElementsByClassName('js-footer')[0];
-  var account = document.getElementsByClassName('js-account')[0];
+
   container.classList.add('hide');
   header.classList.add('hide');
   footer.classList.add('hide');
+  var account = document.getElementsByClassName('js-account')[0];
   account.classList.add('show');
+  fadeIn(account.firstChild);
 }
 
 var closeBtn = document.getElementsByClassName('js-closeBtn')[0];
@@ -45,6 +47,8 @@ closeBtn.onclick = function() {
   for(i = 0; i<grandsons.length; i++) {
     grandsons[i].classList.remove('hide');
   }
+  var account = document.getElementsByClassName('js-account')[0];
+  fadeIn(account.firstChild);
 }
 
 var forgotPasswordBtn = document.getElementsByClassName('js-forgotPassword')[0];
@@ -70,6 +74,9 @@ forgotPasswordBtn.onclick = function() {
     submitBtn.innerHTML = "登入";
     forgotPasswordBtn.innerHTML = "忘記密碼?";
   }
+  var account = document.getElementsByClassName('js-account')[0];
+  fadeIn(account.firstChild);
+
 }
 
 var theOtherActionBtn = document.getElementsByClassName('js-theOtherAction')[0];
@@ -99,5 +106,8 @@ theOtherActionBtn.onclick = function(e) {
     submitBtn.innerHTML = "註冊";
     forgotPasswordBtn.classList.add('hide');
   }
+
+  var account = document.getElementsByClassName('js-account')[0];
+  fadeIn(account.firstChild);
 
 }
