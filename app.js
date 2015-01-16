@@ -21,12 +21,12 @@ app.get('/', function* (next) {
 app.get('/:productId', function* (next) {
   var productId = this.params.productId;
 
-  var product = yield meepbee.classes('Products').get(productId, '?include=seller');
+  var product = yield meepbee.classes('Products').get(productId, {include: 'seller'});
   product = JSON.parse(product.body);
   product.comments = [];
   product.like = []
 
-  var comments = yield meepbee.classes('Comments').getAll('?include=commenter');
+  var comments = yield meepbee.classes('Comments').getAll({include: 'commenter'});
   comments = JSON.parse(comments.body).results;
   comments.forEach(function (comment) {
     if (comment.product.objectId === productId) {
@@ -34,7 +34,7 @@ app.get('/:productId', function* (next) {
     }
   });
 
-  var likes = yield meepbee.classes('Likes').getAll('?include=likedUser');
+  var likes = yield meepbee.classes('Likes').getAll({include: 'likedUser'});
   likes = JSON.parse(likes.body).results;
   likes.forEach(function (like) {
     if (like.likedProduct.objectId === productId) {
