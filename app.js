@@ -7,12 +7,14 @@ var views = require('co-views');
 var router = require('koa-router');
 var Parse = require('koa-parse-restapi');
 var keys = require('./key');
+var bodyParser = require('koa-bodyparser');
 var meepbee = new Parse(keys.appId, keys.restKey);
 var render = views('.', {
   default: 'jade'
 });
 
 app.use(router(app));
+app.use(bodyParser());
 app.use(mount('/public', serve(__dirname + '/public')));
 
 app.get('/', function* (next) {
@@ -59,6 +61,9 @@ app.get('/:productId', function* (next) {
       product: JSON.stringify(product)
     });
   this.body = html;
+});
+
+app.post('/products', function* (next) {
 });
 
 console.log('Hey sailor, Your server is on at port: 9000');

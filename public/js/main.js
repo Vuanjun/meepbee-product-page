@@ -1,6 +1,6 @@
 function rotateLeft(arr, num) {
   num = num || 1;
-  for (var i=0; i < num; ++i) {
+  for (var i = 0; i < num; ++i) {
     arr.push(arr.shift());
   }
   return arr;
@@ -8,7 +8,7 @@ function rotateLeft(arr, num) {
 
 function rotateRight(arr, num) {
   num = num || 1;
-  for (var i=0; i < num; ++i) {
+  for (var i = 0; i < num; ++i) {
     arr.unshift(arr.pop());
   }
   return arr;
@@ -74,9 +74,9 @@ function renderSubFrame(data, i) {
     var videoDivs = thisFrame.querySelectorAll('div');
     if (videoDivs.length !== 0)
       console.log(videoDivs);
-      for (var i=0; i < videoDivs.length; ++i) {
-        videoDivs[i].remove()
-      }
+    for (var i = 0; i < videoDivs.length; ++i) {
+      videoDivs[i].remove()
+    }
   } else {
     // process video
     thisFrame.classList.add('js-videoFrame');
@@ -104,10 +104,17 @@ function renderDOM(data) {
   });
 }
 
-window.addEventListener('load', function() {
+function post(url, data) {
+  var request = new XMLHttpRequest()
+  request.open('POST', url, true);
+  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+  request.send(data);
+}
+window.addEventListener('load', function () {
 
   var prevBtn = document.querySelector('.js-prevBtn');
   var nextBtn = document.querySelector('.js-nextBtn');
+  var confirmBtn = document.querySelector('.confirmBtn');
   var mediaData = JSON.parse(document.querySelector('script[data-frames="app_data"]').innerHTML)
   var video = document.querySelector('video')
   mediaData.push(video);
@@ -129,6 +136,13 @@ window.addEventListener('load', function() {
   prevBtn.addEventListener('click', function () {
     var rotated = rotateRight(mediaData);
     renderDOM(rotated);
+  });
+
+  confirmBtn.addEventListener('click', function () {
+    var nameInput = document.querySelector('input.recipientInfo__name__field').value
+    var phoneInput = document.querySelector('input.recipientInfo__phone__field').value
+    var addressInput = document.querySelector('input.recipientInfo__address__field').value
+    var memoInput = document.querySelector('input.recipientInfo__memo__field').value
   });
 
 });
