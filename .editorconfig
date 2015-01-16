@@ -22,6 +22,7 @@ indent_size = 4
 [*.js]
 indent_style = space
 indent_size = 2
+jslint_happy = true
 
 # Matches the exact files either package.json or .travis.yml
 [{package.json,.travis.yml}]
