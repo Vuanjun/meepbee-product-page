@@ -1,20 +1,28 @@
-var serve = require('koa-static');
 var koa = require('koa');
+var serve = require('koa-static');
 var mount = require('koa-mount');
-var app = koa();
+var router = require('koa-router');
+
 var fs = require('co-fs');
 var views = require('co-views');
-var router = require('koa-router');
+
 var Parse = require('koa-parse-restapi');
 var keys = require('./key');
-var bodyParser = require('koa-bodyparser');
 var meepbee = new Parse(keys.appId, keys.restKey);
+
+var bodyParser = require('koa-bodyparser')({
+  extendTypes: {
+    json: ['application/x-javascript']
+  }
+});
+
 var render = views('.', {
   default: 'jade'
 });
 
+var app = koa();
+
 app.use(router(app));
-app.use(bodyParser());
 app.use(mount('/public', serve(__dirname + '/public')));
 
 app.get('/', function* (next) {
@@ -63,7 +71,10 @@ app.get('/:productId', function* (next) {
   this.body = html;
 });
 
-app.post('/products', function* (next) {
+app.post('/products', bodyParser, function* (next) {
+  var returnedStatus =
+    yield meepbee.classes('Orders').create(this.request.body);
+  this.body = returnedStatus.body;
 });
 
 console.log('Hey sailor, Your server is on at port: 9000');
