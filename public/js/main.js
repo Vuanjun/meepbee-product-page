@@ -104,19 +104,32 @@ function renderDOM(data) {
   });
 }
 
-function post(url, data) {
+function post(url, data, callback) {
   var request = new XMLHttpRequest()
   request.open('POST', url, true);
-  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-  request.send(data);
+  request.setRequestHeader('Content-Type', 'application/x-javascript; charset=UTF-8');
+  request.onload = function () {
+    if (request.status >= 200 && request.status < 400) {
+      // Success!
+      var resp = request.responseText;
+      callback(resp)
+    } else {
+      // We reached out target server, but it returned an error
+    }
+  }
+  request.onerror = function () {
+    // There was a connection error of some sort
+  }
+  request.send(JSON.stringify(data));
 }
 window.addEventListener('load', function () {
 
   var prevBtn = document.querySelector('.js-prevBtn');
   var nextBtn = document.querySelector('.js-nextBtn');
   var confirmBtn = document.querySelector('.confirmBtn');
-  var mediaData = JSON.parse(document.querySelector('script[data-frames="app_data"]').innerHTML)
-  var video = document.querySelector('video')
+  var productInfo = JSON.parse(document.querySelector('script[data-frames="app_data"]').innerHTML)
+  var mediaData = productInfo.images;
+  var video = document.querySelector('video');
   mediaData.push(video);
 
   var subFrames = document.querySelectorAll('.js-subFrame');
@@ -143,6 +156,37 @@ window.addEventListener('load', function () {
     var phoneInput = document.querySelector('input.recipientInfo__phone__field').value
     var addressInput = document.querySelector('input.recipientInfo__address__field').value
     var memoInput = document.querySelector('input.recipientInfo__memo__field').value
+    var quantity = +document.querySelector('.product__payment__quantityBox__actionSet__figure').innerHTML;
+    var fee = +document.querySelector('.js-logistics-cost').innerHTML;
+    var tradingWay = document.querySelector('.prodcut__payment__cashFlow__actionSet__btn.isChosen').innerHTML
+    var shippingWay = document.querySelector('.prodcut__payment__logistics__actionSet__btn.isChosen').innerHTML
+    var postData = {
+      buyer: {__type: 'Pointer', className: '_User', objectId: 'Anonymous'},
+      seller: {__type: 'Pointer', className: '_User', objectId: productInfo.seller.objectId},
+      orderForm: {
+        address: addressInput,
+        realName: nameInput,
+        phoneNumber: phoneInput,
+        note: memoInput,
+        title: productInfo.title,
+        pricePerProduct: productInfo.price,
+        productImageName: productInfo.images[0].name,
+        quantity: quantity,
+        shipping: {
+          fee: fee,
+          selected: true,
+          shippingWay: shippingWay
+        },
+        payment: {
+          description: '',
+          selected: true,
+          tradingWay: tradingWay
+        }
+      }
+    }
+    post('/products', postData, function (res) {
+      console.log(res);
+    });
   });
 
 });

@@ -1,22 +1,14 @@
-var cashFlowAction = document.getElementsByClassName('js-cashFlow-action')[0]
+var cashFlowAction = document.querySelector('.js-cashFlow-action')
 var cashFlowActionChilds = cashFlowAction.childNodes;
 
-// var atmBtn = cashFlowActionChilds[1];
-// var payOnArrivalBtn = cashFlowActionChilds[1];
-// var payInPersonBtn = cashFlowActionChilds[2];
-
-for(var i = 0; i<cashFlowActionChilds.length; i++) {
+for (var i = 0; i < cashFlowActionChilds.length; i++) {
   cashFlowActionChilds[i].addEventListener('click', choose);
 }
 
-var logisticsAction = document.getElementsByClassName('js-logistics-action')[0]
+var logisticsAction = document.querySelector('.js-logistics-action')
 var logisticsActionChilds = logisticsAction.childNodes;
 
-// var atmBtn = logisticsActionChilds[1];
-// var payOnArrivalBtn = logisticsActionChilds[1];
-// var payInPersonBtn = logisticsActionChilds[2];
-
-for(var i = 0; i<logisticsActionChilds.length; i++) {
+for (var i = 0; i < logisticsActionChilds.length; i++) {
   logisticsActionChilds[i].addEventListener('click', choose);
 }
 
@@ -26,98 +18,75 @@ function choose(e) {
 
   var patt = new RegExp('isChosen');
 
-  for(var i = 0; i<parent.childNodes.length; i ++) {
-    if(patt.test(parent.childNodes[i].className)) {
+  for (var i = 0; i < parent.childNodes.length; i++) {
+    if (patt.test(parent.childNodes[i].className)) {
       parent.childNodes[i].classList.remove('isChosen');
     }
   }
-
   e.target.classList.add('isChosen');
-
-  var price = document.getElementsByClassName('js-product-price')[0].innerHTML;
-  price = ~~price.replace(/\D/g, '');
-
-  var cost = ~~e.target.getAttribute('data-fee');
-  var logisticsCost = document.getElementsByClassName('js-logistics-cost')[0];
-  var totalCost = document.getElementsByClassName('js-total-cost')[0];
-
-  logisticsCost.innerHTML=cost;
-  totalCost.innerHTML= cost + price;
-
+  calculate();
 }
 
-var paymentSummaryCofrimBtn = document.getElementsByClassName('js-payment-confirmBtn')[0]
+var paymentSummaryCofrimBtn = document.querySelector('.js-payment-confirmBtn')
 var paymentDetailIsOpen = false;
 
-paymentSummaryCofrimBtn.onclick = function() {
+paymentSummaryCofrimBtn.onclick = function () {
 
-  var paymentSummary = document.getElementsByClassName('js-payment-summary')[0];
-  var recipientInfo = document.getElementsByClassName('js-recipientInfo')[0];
-  var comment = document.getElementsByClassName('js-comment')[0];
+  var paymentSummary = document.querySelector('.js-payment-summary');
+  var recipientInfo = document.querySelector('.js-recipientInfo');
 
-  var product = document.getElementsByClassName('js-product')[0];
-  var carouselBox = document.getElementsByClassName('js-carouselBox')[0];
-
-  var costs = document.getElementsByClassName('js-product-cost');
-
-  if(!paymentDetailIsOpen) {
+  if (!paymentDetailIsOpen) {
     paymentDetailIsOpen = true;
     paymentSummaryCofrimBtn.innerHTML = "關閉資訊";
-    if(window.innerWidth>=1024) paymentSummaryCofrimBtn.style.marginBottom="2.5em";
-    // owner.classList.add('ownerOnLeft');
-    // ownerAvatar.classList.add('avatarSmall');
-    // recipientInfo.classList.add('recipientInfoPush');
-    // if(window.innerWidth>=1024 && window.innerWidth<=1300) comment.style.marginTop="-62px";
-    paymentSummary.style.display="block";
-    recipientInfo.style.display="initial";
+    if (window.innerWidth >= 1024) paymentSummaryCofrimBtn.style.marginBottom = "2.5em";
+    paymentSummary.style.display = "block";
+    recipientInfo.style.display = "initial";
   } else {
     paymentDetailIsOpen = false;
     paymentSummaryCofrimBtn.innerHTML = "計算價錢";
-    if(window.innerWidth>=1024) paymentSummaryCofrimBtn.style.marginBottom="1.5em";
-    // owner.classList.remove('ownerOnLeft');
-    // ownerAvatar.classList.remove('avatarSmall');
-    // recipientInfo.classList.add('recipientInfoPush');
-    // if(window.innerWidth>=1024 && window.innerWidth<=1300) comment.style.marginTop="12px";
-    paymentSummary.style.display="none";
-    recipientInfo.style.display="none";
+    if (window.innerWidth >= 1024) paymentSummaryCofrimBtn.style.marginBottom = "1.5em";
+    paymentSummary.style.display = "none";
+    recipientInfo.style.display = "none";
   }
 
 }
 
-// window.addEventListener('load', adjustCommentPosition);
 
-// function adjustCommentPosition() {
-//   var product = document.getElementsByClassName('js-product')[0];
-//   var carouselBox = document.getElementsByClassName('js-carouselBox')[0];
-//   var airBetween = 65-(product.offsetHeight - carouselBox.offsetHeight);
-//   var comment = document.getElementsByClassName('js-comment')[0];
-//   console.log(airBetween);
-//   if(airBetween<=221 && window.innerWidth>=1024 && window.innerWidth<=1300) {
-//     console.log('in');
-//     comment.style.marginTop= airBetween + 'px';
-//   }
-// }
+var plusBtn = document.querySelector('.js-plus-btn');
+var minusBtn = document.querySelector('.js-minus-btn');
 
-var plusBtn = document.getElementsByClassName('js-plus-btn')[0];
-var minusBtn = document.getElementsByClassName('js-minus-btn')[0];
-
-// plusBtn.addEventListener('touchstart', increaseNo);
-// plusBtn.on('tap', increaseNo);
 plusBtn.addEventListener('click', increaseNo);
 minusBtn.addEventListener('click', decreaseNo);
 
 
 function increaseNo(e) {
-  var quantity = document.getElementsByClassName('product__payment__quantityBox__actionSet__figure')[0];
-  quantity.innerHTML = ~~quantity.innerHTML + 1;
+  var productInfo = JSON.parse(document.querySelector('script[data-frames="app_data"]').innerHTML)
+  var quantityCap = productInfo.quantity;
+  var quantity = document.querySelector('.product__payment__quantityBox__actionSet__figure');
+  if ((+quantity.innerHTML + 1) <= quantityCap) {
+    quantity.innerHTML = +quantity.innerHTML + 1;
+  }
+  calculate();
 }
 
 function decreaseNo(e) {
-  var qtyDOM = document.getElementsByClassName('product__payment__quantityBox__actionSet__figure')[0];
-  var qty = ~~qtyDOM.innerHTML
+  var qtyDOM = document.querySelector('.product__payment__quantityBox__actionSet__figure');
+  var qty = +qtyDOM.innerHTML
   if (qty <= 1) {
     return false;
   } else {
     qtyDOM.innerHTML = qty - 1;
   }
+  calculate();
+}
+
+function calculate() {
+  var quantity = +document.querySelector('.product__payment__quantityBox__actionSet__figure').innerHTML
+  var productPrice = +document.querySelector('.js-product-price').innerHTML.replace(/\D/, '');
+  var logisticsFee = document.querySelector('.prodcut__payment__logistics__actionSet__btn.isChosen');
+  logisticsFee ? logisticsFee = +logisticsFee.getAttribute('data-fee') : logisticsFee = 0
+  var logisticsCost = document.querySelector('.js-logistics-cost');
+  logisticsCost.innerHTML = logisticsFee;
+  var totalCost = document.querySelector('.js-total-cost');
+  totalCost.innerHTML = quantity * productPrice + logisticsFee;
 }
