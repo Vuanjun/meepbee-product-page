@@ -26,9 +26,10 @@ app.use(router(app));
 app.use(mount('/public', serve(__dirname + '/public')));
 
 app.get('/', function* (next) {
-  var html =
-    yield render('src/home/index.jade');
-  this.body = html;
+  // var html =
+  //   yield render('src/home/index.jade');
+  // this.body = html;
+  this.redirect("http://www.meepbee.com/");
 });
 
 app.get('/:productId', function* (next) {
